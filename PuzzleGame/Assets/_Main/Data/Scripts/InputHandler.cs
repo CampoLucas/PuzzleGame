@@ -5,14 +5,14 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     private PlayerControls _inputActions;
-    //private Movement _movement;
+    private MovementScript _movement;
     //private "Jump"/"Action?" creo que seria mejor hacer scripts separados para el salto del cubo, la propolsion de la bola y el giro de la piramide
 
     Vector2 movementInput;
 
     private void Awake()
     {
-        //... = GetComponent<...>();
+        _movement = GetComponent<MovementScript>();
     }
 
     private void Update()
@@ -40,11 +40,9 @@ public class InputHandler : MonoBehaviour
 
     private void MoveInput()
     {
-        /*
-        horizontal = movementInput.x;
-        vertical = movementInput.y;
 
-        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));*/
+        _movement.horizontal = movementInput.x;
+        _movement.vertical = movementInput.y;
     }
 
     private void ActionInput()

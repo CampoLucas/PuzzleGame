@@ -6,6 +6,8 @@ public class InputHandler : MonoBehaviour
 {
     private PlayerControls _inputActions;
     private MovementScript _movement;
+    private ChangeForm _changeForm;
+    private JumpScript _jumpScript;
     //private "Jump"/"Action?" creo que seria mejor hacer scripts separados para el salto del cubo, la propolsion de la bola y el giro de la piramide
 
     Vector2 movementInput;
@@ -13,6 +15,8 @@ public class InputHandler : MonoBehaviour
     private void Awake()
     {
         _movement = GetComponent<MovementScript>();
+        _changeForm = GetComponent<ChangeForm>();
+        _jumpScript = GetComponent<JumpScript>();
     }
 
     private void Update()
@@ -36,6 +40,8 @@ public class InputHandler : MonoBehaviour
     private void HandleAllInputs()
     {
         MoveInput();
+        ActionInput();
+        SwapInput();
     }
 
     private void MoveInput()
@@ -47,6 +53,11 @@ public class InputHandler : MonoBehaviour
 
     private void ActionInput()
     {
-        //inputActions.PlayerActions.Action.performed += i => //Bool = true;
+        _inputActions.PlayerActions.Action.performed += i => _jumpScript.isJump = true;
+    }
+
+    private void SwapInput()
+    {
+        _inputActions.PlayerActions.Swap.performed += i => _changeForm.swapNow = true;
     }
 }

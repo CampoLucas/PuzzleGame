@@ -133,7 +133,7 @@
             "id": "cabedb8f-1197-468b-a251-31c598a785e5",
             "actions": [
                 {
-                    "name": "Action",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "51e54d2a-cee5-42e5-a6cb-f156f3934eac",
                     "expectedControlType": "Button",
@@ -159,7 +159,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Action",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -170,7 +170,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Action",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

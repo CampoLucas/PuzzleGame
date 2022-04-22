@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10936,13 +10936,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2019052588}
+  - component: {fileID: 2019052591}
+  - component: {fileID: 2019052590}
   - component: {fileID: 2019052589}
   - component: {fileID: 2019052593}
   - component: {fileID: 2019052592}
-  - component: {fileID: 2019052591}
-  - component: {fileID: 2019052590}
-  - component: {fileID: 2019052595}
-  - component: {fileID: 2019052594}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -10975,9 +10973,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2019052587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 830bc620ecff0a448b7c2051bbde3d4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a140b6aafefc294bae734338c43b018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementForce: 1
+  maxSpeed: 5
 --- !u!114 &2019052590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10987,7 +10987,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2019052587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1607b5b6af38a94e92450bb3f2aabdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd2895fa1d34694bb23504a28a1606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2019052591
@@ -10999,26 +10999,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 2019052587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658123a5131b16e4f8df697d075ec1ac, type: 3}
+  m_Script: {fileID: 11500000, guid: a6e62f3b9d32ea94b9cb9182fe82d5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isJump: 0
---- !u!114 &2019052592
-MonoBehaviour:
+  horizontal: 0
+  vertical: 0
+--- !u!54 &2019052592
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019052587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f0c7659554d58e488f06d42279d563a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontal: 0
-  vertical: 0
-  moveDirection: {x: 0, y: 0, z: 0}
-  myTransform: {fileID: 0}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!114 &2019052593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11028,42 +11029,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2019052587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4672afc86408d954d87a6264093015c8, type: 3}
+  m_Script: {fileID: 11500000, guid: ea0eea5917f8fe54db3cf85541dc4f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: a15da1a75527f82488870e41f97c4a0a, type: 2}
---- !u!54 &2019052594
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019052587}
-  serializedVersion: 2
-  m_Mass: 20
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &2019052595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019052587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f10dc2e9de0a0e4798cab4e61265f86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  form:
-  - {fileID: 1839771573}
-  - {fileID: 1869745108}
-  swapNow: 0
+  jumpForce: 5
 --- !u!1 &2020359069
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,10 @@ using UnityEngine.Events;
 
 public class ButtonPhysics : MonoBehaviour
 {
+
+    [SerializeField] private Collider _baseCollider;
+    [SerializeField] private Collider _buttonCollider;
+
     public Transform buttonTop;                     //Saves the top of the button, the thing that moves within the base.
     public Transform buttonLowerLimit;              //Lower and upper limit are transforms to track the upper and lowwer limit we want the top of the button to be contained.
     public Transform buttonUpperLimit;
@@ -17,11 +21,13 @@ public class ButtonPhysics : MonoBehaviour
     public AudioSource releasedSound;
     public UnityEvent onPressed;
     public UnityEvent onReleased;
+
+
     private void Start()
     {
 
 
-        Physics.IgnoreCollision(GetComponent<Collider>(), buttonTop.GetComponent<Collider>());
+        Physics.IgnoreCollision(_baseCollider, _buttonCollider);
         if (transform.eulerAngles != Vector3.zero)
         {
             Vector3 saveAngle = transform.eulerAngles;
@@ -35,14 +41,14 @@ public class ButtonPhysics : MonoBehaviour
 
     private void Update()
     {
-        buttonTop.transform.localPosition = new Vector3(0, buttonTop.transform.localPosition.y, 0);
-        buttonTop.transform.localEulerAngles = new Vector3(0, 0, 0);
+        buttonTop.transform.position = new Vector3(0, buttonTop.transform.position.y, 0);
+        buttonTop.transform.eulerAngles = new Vector3(0, 0, 0);
         if (buttonTop.localPosition.y >= 0)
             buttonTop.transform.position = new Vector3(buttonUpperLimit.position.x, buttonUpperLimit.position.y, buttonUpperLimit.position.z);
         else
             buttonTop.GetComponent<Rigidbody>().AddForce(buttonTop.transform.up * force * Time.fixedDeltaTime);
 
-        if (buttonTop.localPosition.y <= buttonLowerLimit.localPosition.y)
+        if (buttonTop.position.y <= buttonLowerLimit.position.y)
             buttonTop.transform.position = new Vector3(buttonLowerLimit.position.x, buttonLowerLimit.position.y, buttonLowerLimit.position.z);
 
         if (Vector3.Distance(buttonTop.position, buttonLowerLimit.position) < upperLowerDiff * threshHold)

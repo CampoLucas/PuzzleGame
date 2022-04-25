@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class Movement : MonoBehaviour
 {
     private Rigidbody _rigidbody;
+
+    private PlayerControls playerActionsAssets;
+    private InputAction move;
+
+
+
 
     [SerializeField] private float movementForce = 1f;
     [SerializeField] private float maxSpeed = 5f;
@@ -13,13 +21,19 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        playerActionsAssets = new PlayerControls();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    public void Move(float horizontal, float vertical)
+    private void OnEnable()
+    { 
+        move = playerActionsAssets.PlayerMovements.Movement;
+    }
+
+    public void Move()
     {
-        forceDirection += horizontal * GetCamera(Camera.main.transform.right) * movementForce;
-        forceDirection += vertical * GetCamera(Camera.main.transform.forward) * movementForce;
+        transform.Translate(Vector3.forward * Time.fixedDeltaTime * maxSpeed * move.ReadValue<Vector2>().x);
+        transform.Translate(Vector3.right * Time.fixedDeltaTime * maxSpeed * move.ReadValue<Vector2>().y);
 
         _rigidbody.AddForce(forceDirection, ForceMode.Impulse);
 
@@ -41,4 +55,5 @@ public class Movement : MonoBehaviour
         forward.y = 0;
         return forward.normalized;
     }
+
 }

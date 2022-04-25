@@ -29,7 +29,8 @@ public class InputHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _player.Move(horizontal, vertical);
+       // _player.Move(horizontal, vertical;
+        _player.Move(horizontal, vertical;
         if (jump_Input) _player.Jump();
     }
 

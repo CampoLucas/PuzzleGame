@@ -24,14 +24,13 @@ public class InputHandler : MonoBehaviour
     private void Update()
     {
         HandleInput();
-        
+        _player.Move(horizontal, vertical);
+        if (jump_Input) _player.Jump();
     }
 
     private void FixedUpdate()
     {
-       // _player.Move(horizontal, vertical;
-        _player.Move(horizontal, vertical;
-        if (jump_Input) _player.Jump();
+        
     }
 
     private void LateUpdate()

@@ -6,28 +6,23 @@ public class Player : MonoBehaviour
 {
     private Movement _movement;
     private Jump _jump;
-    PlayerController pc;
+    PlayerController _status;
     private void Awake()
     {
         _movement = GetComponent<Movement>();
         _jump = GetComponent<Jump>();
+        _status = GetComponent<PlayerController>();
     }
 
-    //// Update is called once per frame
-    //public void Move(float horizontal, float vertical)
-    //{
-    //    if (_movement != null) _movement.Move(horizontal, vertical);
-    //}
+    public void Move(float horizontal, float vertical) => _movement?.Move(horizontal, vertical);
 
-    // Update is called once per frame
-    public void Move()
+    public void Jump() =>_jump?.Do();
+
+    public bool isGrounded()
     {
-        _movement.Move();
+        return _status.IsGrounded();
+
     }
 
-    public void Jump()
-    {
-        if(pc.IsGrounded())
-        _jump.Do();
-    }
+
 }

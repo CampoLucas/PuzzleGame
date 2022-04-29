@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatsSO : MonoBehaviour
+[CreateAssetMenu(fileName = "Stats", menuName = "Entities/Stats", order = 0)]
+public class StatsSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float Speed => _speed;
+    [SerializeField] private float _speed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float JumpSpeed => _jumpSpeed;
+    [SerializeField] private float _jumpSpeed;
+    
+
+    public float Mass => _mass;
+    [SerializeField] private float _mass;
+    public float Drag => _drag;
+    [SerializeField] private float _drag;
+    public float LinearDrag => _linearDrag;
+    [SerializeField] private float _linearDrag;
 }

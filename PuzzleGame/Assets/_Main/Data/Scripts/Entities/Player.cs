@@ -13,20 +13,15 @@ public class Player : MonoBehaviour
         _jump = GetComponent<Jump>();
     }
 
-    //// Update is called once per frame
-    //public void Move(float horizontal, float vertical)
-    //{
-    //    if (_movement != null) _movement.Move(horizontal, vertical);
-    //}
-
     // Update is called once per frame
-    public void Move()
+    public void Move(float horizontal, float vertical)
     {
-        _movement.Move();
+        if (_movement != null) _movement.Move(horizontal, vertical);
     }
 
     public void Jump()
     {
+        Debug.Log("Jump de Player");
         if(pc.IsGrounded())
         _jump.Do();
     }

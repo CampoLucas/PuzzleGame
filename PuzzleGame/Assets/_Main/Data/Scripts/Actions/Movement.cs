@@ -11,10 +11,9 @@ public class Movement : MonoBehaviour
     private PlayerControls playerActionsAssets;
     private InputAction move;
 
+    [SerializeField] private float movementForce = 100f;
 
-
-
-    [SerializeField] private float movementForce = 1f;
+    //[SerializeField] private float movementForce = 1f;
     [SerializeField] private float maxSpeed = 5f;
 
     private Vector3 forceDirection = Vector3.zero;
@@ -30,12 +29,16 @@ public class Movement : MonoBehaviour
         move = playerActionsAssets.PlayerMovements.Movement;
     }
 
-    public void Move()
+    public void Move( float horizontal, float vertical)
     {
-        transform.Translate(Vector3.forward * Time.fixedDeltaTime * maxSpeed * move.ReadValue<Vector2>().x);
-        transform.Translate(Vector3.right * Time.fixedDeltaTime * maxSpeed * move.ReadValue<Vector2>().y);
+        // transform.Translate(Vector3.forward * Time.fixedDeltaTime * maxSpeed * horizontal);
+        // transform.Translate(Vector3.right * Time.fixedDeltaTime * maxSpeed * vertical);
 
-        _rigidbody.AddForce(forceDirection, ForceMode.Impulse);
+        forceDirection.x += horizontal  * movementForce;
+        forceDirection.z += vertical * movementForce;
+
+
+        _rigidbody.AddForce(forceDirection);
 
 
         forceDirection = Vector3.zero;

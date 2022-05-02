@@ -13,9 +13,8 @@ public class Jump : MonoBehaviour
     
     public void Do()
     {
-        Debug.Log("jump");
+        Debug.Log("jump de Jump");
 
-        if (IsGrounded())
             forceDirection += Vector3.up * jumpForce;
     }
 

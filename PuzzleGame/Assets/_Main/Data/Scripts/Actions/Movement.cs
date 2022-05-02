@@ -29,10 +29,10 @@ public class Movement : MonoBehaviour
         move = playerActionsAssets.PlayerMovements.Movement;
     }
 
-    public void Move( float horizontal, float vertical)
+    public void Move(float horizontal, float vertical)
     {
-        // transform.Translate(Vector3.forward * Time.fixedDeltaTime * maxSpeed * horizontal);
-        // transform.Translate(Vector3.right * Time.fixedDeltaTime * maxSpeed * vertical);
+        transform.Translate(Vector3.forward * Time.fixedDeltaTime * maxSpeed * horizontal);
+        transform.Translate(Vector3.right * Time.fixedDeltaTime * maxSpeed * vertical);
 
         forceDirection.x += horizontal  * movementForce;
         forceDirection.z += vertical * movementForce;

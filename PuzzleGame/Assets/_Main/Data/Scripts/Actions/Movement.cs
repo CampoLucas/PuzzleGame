@@ -32,8 +32,8 @@ public class Movement : MonoBehaviour
 
     public void Move(float horizontal, float vertical)
     {
-        transform.Translate(Vector3.forward * Time.fixedDeltaTime * maxSpeed * horizontal);
-        transform.Translate(Vector3.right * Time.fixedDeltaTime * maxSpeed * vertical);
+        transform.Translate(Vector3.forward * Time.deltaTime * maxSpeed * -horizontal);
+        transform.Translate(Vector3.right * Time.deltaTime * maxSpeed * vertical);
 
         _rigidbody.AddForce(forceDirection, ForceMode.Impulse);
 
@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
         forceDirection = Vector3.zero;
 
         if (_rigidbody.velocity.y < 0f)
-            _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
+            _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime;
 
         Vector3 horizontalVelocity = _rigidbody.velocity;
         horizontalVelocity.y = 0;

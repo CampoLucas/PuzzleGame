@@ -4,52 +4,45 @@ using UnityEngine;
 
 public class GrabObjects : MonoBehaviour
 {
-    [SerializeField] private Transform grabPoint;
-    [SerializeField] private Transform rayPoint;
-    [SerializeField] private float rayDistance;
+    private GameObject _grabbedObject;
+    [SerializeField]private LayerMask _layerIndex;
 
-    private GameObject grabbedGameObject;
-    [SerializeField]private LayerMask layerIndex;
-
-    RaycastHit hitInfo;
+    Collider other;
 
     // Update is called once per frame
     private void Update()
     {
-        //if(Physics.Raycast(rayPoint.position, transform.forward, out RaycastHit hit))
-        //{
-        //    if(hit.collider != null && hit.collider.gameObject.layer == layerIndex)
-        //        Debug.Log("hit");
-        //}
-
-        //if (Physics.Raycast(rayPoint.position, transform.forward, out RaycastHit hit, rayDistance))
-        //{
-        //    Debug.Log("hit");
-        //}
-
-        //if (Physics.Raycast(rayPoint.position, transform.forward, out RaycastHit hit))
-        //{
-        //    Debug.Log("hit");
-        //}
-
-        //RaycastHit hit;
-        //Physics.Raycast(rayPoint.position, transform.forward, out hit, rayDistance);
-        //if(hit.collider != null)
-        //{
-        //    Debug.Log("hit");
-        //}
-
-        Debug.DrawRay(rayPoint.position, transform.forward * rayDistance, Color.red);
+        //GrabObject(false);
     }
 
-    private bool IsNearObject()
+    private void OnTriggerStay(Collider other)
     {
-        if (Physics.Raycast(rayPoint.position, transform.forward))
-        {
-            return true;
-        }
+        this.other = other;
+    }
 
-        return false;
+    public void GrabObject(bool input)
+    {
+        if (((1 << other.gameObject.layer) & _layerIndex) != 0)
+        {
+            if (input && _grabbedObject == null)
+            {
+                _grabbedObject = other.gameObject;
+                _grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                //_grabbedObject.GetComponent<Rigidbody>().useGravity = false;
+                _grabbedObject.transform.position = transform.position;
+                _grabbedObject.transform.SetParent(transform);
+            }
+            else if (input && _grabbedObject != null)
+            {
+                _grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+                //_grabbedObject.GetComponent<Rigidbody>().useGravity = true;
+                _grabbedObject.transform.SetParent(null);
+                _grabbedObject = null;
+            }
+
+            Debug.Log("Hit");
+        }
+        
     }
 
 }

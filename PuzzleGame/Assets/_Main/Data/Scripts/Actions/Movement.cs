@@ -31,8 +31,8 @@ public class Movement : MonoBehaviour
 
     public void Move(float horizontal, float vertical)
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * maxSpeed * -horizontal);
-        transform.Translate(Vector3.right * Time.deltaTime * maxSpeed * vertical);
+        //transform.Translate(Vector3.forward * Time.deltaTime * maxSpeed * -horizontal);
+        //transform.Translate(Vector3.right * Time.deltaTime * maxSpeed * vertical);
 
         forceDirection.x += horizontal  * movementForce;
         forceDirection.z += vertical * movementForce;

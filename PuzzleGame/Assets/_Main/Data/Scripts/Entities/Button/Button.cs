@@ -55,6 +55,11 @@ public class Button : MonoBehaviour
         if(((1 << other.gameObject.layer) & _pressMask) != 0)
             isPressed = true;
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (((1 << other.gameObject.layer) & _pressMask) != 0)
+            isPressed = true;
+    }
 
     private void OnTriggerExit(Collider other)
     {

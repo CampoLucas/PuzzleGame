@@ -32,8 +32,10 @@ public class Movement : MonoBehaviour
 
     public void Move(float horizontal, float vertical)
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * maxSpeed * -horizontal);
-        transform.Translate(Vector3.right * Time.deltaTime * maxSpeed * vertical);
+        transform.Translate(Vector3.right * Time.deltaTime * maxSpeed * horizontal);
+        transform.Translate(Vector3.forward * Time.deltaTime * maxSpeed * vertical);
+
+        Debug.DrawRay(transform.position, transform.forward);
 
         _rigidbody.AddForce(forceDirection, ForceMode.Impulse);
 

@@ -36,7 +36,7 @@ public class Jump : MonoBehaviour
 
     public void Do()
     {
-        Debug.Log("jump");
+        Debug.Log("jump de Jump");
 
         //forceDirection = Vector3.zero;
         if (_playerScript.isGrounded())

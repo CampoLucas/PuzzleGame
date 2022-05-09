@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     private PlayerControls playerActionsAssets;
     private InputAction move;
 
-    [SerializeField] private float movementForce = 100f;
+    [SerializeField] private float movementForce = 2000f;
 
     //[SerializeField] private float movementForce = 1f;
     [SerializeField] private float maxSpeed = 5f;
@@ -34,9 +34,9 @@ public class Movement : MonoBehaviour
         //transform.Translate(Vector3.forward * Time.deltaTime * maxSpeed * -horizontal);
         //transform.Translate(Vector3.right * Time.deltaTime * maxSpeed * vertical);
 
-        forceDirection.x += horizontal  * movementForce;
-        forceDirection.z += vertical * movementForce;
-Debug.DrawRay(transform.position, transform.forward);
+        forceDirection.x += horizontal  * movementForce * Time.deltaTime;
+        forceDirection.z += vertical * movementForce * Time.deltaTime;
+        Debug.DrawRay(transform.position, transform.forward);
 
         _rigidbody.AddForce(forceDirection);
 

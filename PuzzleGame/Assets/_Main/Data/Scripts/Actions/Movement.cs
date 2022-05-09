@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour
 
         forceDirection.x += horizontal  * movementForce;
         forceDirection.z += vertical * movementForce;
-
+Debug.DrawRay(transform.position, transform.forward);
 
         _rigidbody.AddForce(forceDirection);
 

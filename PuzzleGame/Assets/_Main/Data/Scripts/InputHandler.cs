@@ -13,6 +13,7 @@ public class InputHandler : MonoBehaviour
     public float vertical;
 
     bool jump_Input;
+    bool grab_Input;
 
     private Vector2 _movementInput;
 
@@ -26,6 +27,7 @@ public class InputHandler : MonoBehaviour
         HandleInput();
         _player.Move(horizontal, vertical);
         if (jump_Input) _player.Jump();
+        _player.GrabObject(grab_Input);
     }
 
     private void FixedUpdate()
@@ -36,6 +38,7 @@ public class InputHandler : MonoBehaviour
     private void LateUpdate()
     {
         jump_Input = false;
+        grab_Input = false;
     }
 
     private void OnEnable()
@@ -53,6 +56,7 @@ public class InputHandler : MonoBehaviour
     {
         MoveInput();
         JumpInput();
+        GrabInput();
     }
     private void MoveInput()
     {
@@ -61,4 +65,6 @@ public class InputHandler : MonoBehaviour
     }
 
     private void JumpInput() => _inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
+
+    private void GrabInput() => _inputActions.PlayerActions.Grab.performed += i => grab_Input = true;
 }

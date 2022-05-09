@@ -26,10 +26,10 @@ public class Player : Stats
 
     }
 
-    public void GrabObject(bool input)
+    public void GrabObject()
     {
         if (_grabObjects != null)
-            _grabObjects.GrabObject(input);
+            _grabObjects.GrabObject();
     }
 
 

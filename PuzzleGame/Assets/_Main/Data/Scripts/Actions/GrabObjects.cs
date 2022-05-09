@@ -5,34 +5,33 @@ using UnityEngine;
 public class GrabObjects : MonoBehaviour
 {
     private GameObject _grabbedObject;
-    [SerializeField]private LayerMask _layerIndex;
 
-    Collider other;
+    [SerializeField] private Transform _rayPoint;
+    [SerializeField] private Transform _hand;
+    [SerializeField] private float _rayDistance;
+
+    [SerializeField] private LayerMask _layerIndex;
 
     // Update is called once per frame
     private void Update()
     {
-        //GrabObject(false);
+        
+        Debug.DrawRay(_rayPoint.position, transform.forward * _rayDistance, Color.red);
     }
 
-    private void OnTriggerStay(Collider other)
+    public void GrabObject()
     {
-        this.other = other;
-    }
-
-    public void GrabObject(bool input)
-    {
-        if (((1 << other.gameObject.layer) & _layerIndex) != 0)
+        if (Physics.Raycast(_rayPoint.position, transform.forward, out RaycastHit hit, _rayDistance, _layerIndex))
         {
-            if (input && _grabbedObject == null)
+            if (_grabbedObject == null)
             {
-                _grabbedObject = other.gameObject;
+                _grabbedObject = hit.collider.gameObject;
                 _grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
                 //_grabbedObject.GetComponent<Rigidbody>().useGravity = false;
-                _grabbedObject.transform.position = transform.position;
+                _grabbedObject.transform.position = _hand.position;
                 _grabbedObject.transform.SetParent(transform);
             }
-            else if (input && _grabbedObject != null)
+            else if (_grabbedObject != null)
             {
                 _grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
                 //_grabbedObject.GetComponent<Rigidbody>().useGravity = true;
@@ -41,8 +40,9 @@ public class GrabObjects : MonoBehaviour
             }
 
             Debug.Log("Hit");
+
         }
-        
+
     }
 
 }

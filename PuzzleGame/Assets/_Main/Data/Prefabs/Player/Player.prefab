@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1111909373}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a140b6aafefc294bae734338c43b018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 1
-  maxSpeed: 6
+  movementForce: 2000
+  maxSpeed: 2
 --- !u!114 &173329348491840783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,8 +446,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4906765951054175793, guid: 4f346b398391801478032a26577730a3, type: 3}
   m_PrefabInstance: {fileID: 8922510580048789337}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &7691001705422193387
-BoxCollider:
+--- !u!136 &1974730003899946214
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -456,8 +456,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.019999988, y: 0.019999977, z: 0.019999996}
+  m_Radius: 0.009999998
+  m_Height: 0.019999977
+  m_Direction: 1
   m_Center: {x: -0.000000003259629, y: -0.0000000032596283, z: 0}
 --- !u!65 &1586073004014920749
 BoxCollider:

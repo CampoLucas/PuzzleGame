@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4893397853953323845}
   - component: {fileID: 8378679919953378528}
   - component: {fileID: 6026937491118098474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wooden_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5234035744946498047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 45, y: 45, z: 45}
   m_Children: []
   m_Father: {fileID: 4129068263128582289}
   m_RootOrder: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4129068263128582289}
   - component: {fileID: 9077330319426025665}
   - component: {fileID: 4357171552894731694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wooden_Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.670914, y: 0.670914, z: 0.670914}
+  m_Size: {x: 0.6038226, y: 0.6038226, z: 0.6038226}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4357171552894731694
 Rigidbody:

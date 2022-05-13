@@ -259,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isOn: 0
   prevState: 0
+  _force: 500
   turnOnSound: {fileID: 1868725845}
   turnOffSound: {fileID: 1868725845}
 --- !u!1 &7896050755016030483

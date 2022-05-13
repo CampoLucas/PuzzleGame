@@ -25,7 +25,7 @@ public class InputHandler : MonoBehaviour
     private void Update()
     {
         HandleInput();
-        _player.Move(horizontal, vertical);
+        _player.Move(new Vector3(horizontal, vertical));
         if (jump_Input) _player.Jump();
         if (grab_Input) _player.GrabObject();
     }

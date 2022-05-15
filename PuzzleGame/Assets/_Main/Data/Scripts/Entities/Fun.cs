@@ -52,6 +52,17 @@ public class Fun : MonoBehaviour
         {
             Debug.Log("b");
             other.GetComponent<Rigidbody>().AddForce(transform.up * _force * Time.deltaTime, ForceMode.Force);
+
+            Player _player = other.GetComponent<Player>();
+            if (_player != null)
+                _player.DisableGravity(false);
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Player _player = other.GetComponent<Player>();
+        if (_player != null)
+            _player.DisableGravity(true);
     }
 }

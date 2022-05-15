@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Stats
 {
+      
     private IMovable _movement;
     private IJumpable _jump;
     private PlayerState _status;
@@ -36,5 +37,10 @@ public class Player : Stats
             _grabObjects.GrabObject();
     }
 
+    public void DisableGravity(bool isGravity)
+    {
+        _jump.DisableGravity(isGravity);
 
+        _movement.DisableGravity(isGravity);
+    }
 }

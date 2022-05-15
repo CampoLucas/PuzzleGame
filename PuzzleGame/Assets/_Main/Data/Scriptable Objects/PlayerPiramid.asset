@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43cec1a5771d514e8cedd1f98ab66a9, type: 3}
   m_Name: PlayerPiramid
   m_EditorClassIdentifier: 
-  _form: Piramid
+  _id: 
   _speed: 4.5
   _jumpSpeed: 7
-  _movementForce: 1500
-  _jumpForce: 7
+  _movementForce: 2000
+  _jumpForce: 8
   _maxSpeed: 1000
   _mass: 0.5
   _drag: 1

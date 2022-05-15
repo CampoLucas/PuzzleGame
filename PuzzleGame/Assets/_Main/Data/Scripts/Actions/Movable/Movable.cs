@@ -14,6 +14,8 @@ public class Movable : MonoBehaviour, IMovable
 
     private Vector3 forceDirection = Vector3.zero;
 
+    [SerializeField] private bool _useGravity = true;
+
     public StatsSO Data => _stats;
     private StatsSO _stats;
 
@@ -41,12 +43,14 @@ public class Movable : MonoBehaviour, IMovable
 
         forceDirection = Vector3.zero;
         //Creo que esto deveria ir en otro script
-        if (_rigidbody.velocity.y < 0f)
+        if (_rigidbody.velocity.y < 0f && _useGravity)
             _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime;
 
         Vector3 horizontalVelocity = _rigidbody.velocity;
         horizontalVelocity.y = 0;
         if (horizontalVelocity.sqrMagnitude > _maxSpeed * _maxSpeed)
             _rigidbody.velocity = horizontalVelocity.normalized * _maxSpeed + Vector3.up * _rigidbody.velocity.y * Time.deltaTime;
+
     }
+    public void DisableGravity(bool isGravity) => _useGravity = isGravity;
 }

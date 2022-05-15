@@ -5,5 +5,5 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     public StatsSO Data => _stats;
-    [SerializeField] private StatsSO _stats;
+    [SerializeField] protected StatsSO _stats;
 }

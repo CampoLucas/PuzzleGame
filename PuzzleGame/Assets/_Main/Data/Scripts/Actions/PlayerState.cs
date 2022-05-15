@@ -18,6 +18,8 @@ public class PlayerState : MonoBehaviour
             Debug.Log("no toca");
             return false;
         }
+
+        
             
     }
 }

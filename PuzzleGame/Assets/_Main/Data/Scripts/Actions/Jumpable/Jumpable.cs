@@ -12,6 +12,7 @@ public class Jumpable : MonoBehaviour, IJumpable
     public float MaxSpeed => _maxSpeed;
     [SerializeField] private float _maxSpeed;
 
+    [SerializeField] private bool _useGravity = true;
 
     private Vector3 _forceDirection = Vector3.zero;
 
@@ -38,7 +39,7 @@ public class Jumpable : MonoBehaviour, IJumpable
         _rigidbody.AddForce(_forceDirection, ForceMode.Impulse);
         _forceDirection = Vector3.zero;
 
-        if (_rigidbody.velocity.y < 0f)
+        if (_rigidbody.velocity.y < 0f && _useGravity)
             _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
         Vector3 horizontalVelocity = _rigidbody.velocity;
         horizontalVelocity.y = 0;
@@ -51,5 +52,5 @@ public class Jumpable : MonoBehaviour, IJumpable
             _forceDirection += Vector3.up * _jumpForce;
     }
 
-    
+    public void DisableGravity(bool isGravity) => _useGravity = isGravity;
 }

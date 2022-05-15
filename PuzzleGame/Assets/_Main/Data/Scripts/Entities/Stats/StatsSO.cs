@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Stats", menuName = "Entities/Stats", order = 0)]
 public class StatsSO : ScriptableObject
 {
-    public string Form => _form;
-    [SerializeField] private string _form;
+    public string ID => _id;
+    [SerializeField] private string _id;
     public float Speed => _speed;
     [SerializeField] private float _speed;
 

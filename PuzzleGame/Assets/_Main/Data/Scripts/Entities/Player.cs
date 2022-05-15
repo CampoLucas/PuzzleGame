@@ -4,27 +4,31 @@ using UnityEngine;
 
 public class Player : Stats
 {
-    private Movement _movement;
-    private Jump _jump;
+    private IMovable _movement;
+    private IJumpable _jump;
     private PlayerState _status;
     private GrabObjects _grabObjects;
     private void Awake()
     {
-        _movement = GetComponent<Movement>();
-        _jump = GetComponent<Jump>();
+        _movement = GetComponent<IMovable>();
+        _jump = GetComponent<IJumpable>();
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
     }
 
-    public void Move(float horizontal, float vertical) => _movement?.Move(horizontal, vertical);
-
-    public void Jump() =>_jump?.Do();
-
-    public bool isGrounded()
+    public void Move(Vector3 direction)
     {
-        return _status.IsGrounded();
-
+        if(_movement != null)
+            _movement.Move(direction);
     }
+
+    public void Jump()
+    {
+        if(_jump != null)
+            _jump.Jump();
+    }
+
+    public bool isGrounded() => _status.IsGrounded();
 
     public void GrabObject()
     {

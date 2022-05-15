@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43cec1a5771d514e8cedd1f98ab66a9, type: 3}
   m_Name: PlayerCube
   m_EditorClassIdentifier: 
+  _form: Cube
   _speed: 3
   _jumpSpeed: 5
+  _movementForce: 1200
+  _jumpForce: 6
+  _maxSpeed: 2000
   _mass: 8
   _drag: 2
   _linearDrag: 0

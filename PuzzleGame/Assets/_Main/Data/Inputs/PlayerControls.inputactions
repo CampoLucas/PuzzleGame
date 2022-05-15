@@ -142,7 +142,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Swap",
+                    "name": "Swap_Right",
+                    "type": "Button",
+                    "id": "7e19565e-8039-4204-beda-9441f5800bd1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Swap_Left",
                     "type": "Button",
                     "id": "ffb4c542-1062-4273-bd36-7c87fef8ec6a",
                     "expectedControlType": "Button",
@@ -190,7 +199,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Swap",
+                    "action": "Swap_Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -213,6 +222,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0541d5af-89cf-4b2c-9426-2af61a34285a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Swap_Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

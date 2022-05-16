@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 
   _speed: 6
   _jumpSpeed: 5
-  _movementForce: 1500
+  _movementForce: 1200
   _jumpForce: 8
   _maxSpeed: 2000
   _mass: 1

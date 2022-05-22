@@ -26,7 +26,7 @@ public class Trampoline : MonoBehaviour
             if (_player.Data.ID == "PSR")
                 _currentForce = _force * 2.5f;
             else if (_player.Data.ID == "PPM")
-                _currentForce = _force / 5;
+                _currentForce = _force / 10;
             else
                 _currentForce = _force / 2;
 

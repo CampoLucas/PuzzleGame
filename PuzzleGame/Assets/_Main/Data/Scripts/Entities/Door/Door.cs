@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Door : MonoBehaviour
 
     [SerializeField] private bool isOpened = false;
     public bool prevState;
+
+    [SerializeField] private string nextLevel;
 
     public AudioSource openedSound;
     public AudioSource closedSound;
@@ -47,7 +50,7 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (isOpened)
-            Debug.Log("nextLevel");
+            SceneManager.LoadScene(nextLevel);
     }
 
 }

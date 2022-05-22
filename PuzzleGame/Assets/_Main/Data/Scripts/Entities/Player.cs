@@ -41,13 +41,21 @@ public class Player : Stats
             _grabObjects.GrabObject();
     }
 
-    public void SwapPlayer()
-    {
+    //public void SwapPlayer()
+    //{
 
-        if (_swapPlayer)
-        {
-            _swapPlayer.SwapPlayer();
-        }
+    //    if (_swapPlayer)
+    //    {
+    //        _swapPlayer.SwapPlayer();
+    //    }
+    //}
+
+    public void DisableGravity(bool isGravity)
+    {
+        if(_jump != null)
+            _jump.DisableGravity(isGravity);
+        if(_movement != null)
+            _movement.DisableGravity(isGravity);
     }
 
     public void SwapNext()

@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 8317489573319920639}
   - component: {fileID: 5940514196792018212}
   - component: {fileID: 5940514196792018196}
+  - component: {fileID: 613155064}
   m_Layer: 0
   m_Name: Player_Cube
   m_TagString: Player
@@ -225,7 +226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5940514196792018202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.42, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6343426387359656624}
@@ -363,6 +364,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41, y: 0.41, z: 0.41}
   m_Center: {x: 0, y: 1.197532, z: 0.08205739}
+--- !u!114 &613155064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940514196792018202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca878e11d3fc0f145b0017bb75ad09fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextForm: {fileID: 4584666416557729467, guid: bd273f6eabc779b4092dd08d392e2a12, type: 3}
+  previusForm: {fileID: 5065448733820907817, guid: e42d8a1f634270447ae70a73f9de63dd, type: 3}
 --- !u!1 &6749893875660078784
 GameObject:
   m_ObjectHideFlags: 0

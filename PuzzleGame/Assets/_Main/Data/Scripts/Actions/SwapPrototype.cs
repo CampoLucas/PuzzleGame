@@ -5,16 +5,18 @@ using UnityEngine;
 public class SwapPrototype : MonoBehaviour
 {
 
-    [SerializeField] private GameObject nextForm, previusForm;
+    [SerializeField] private Player nextForm, previusForm;
 
     public void ChangeNextForm()
     {
-        Instantiate(nextForm, transform);
+        Player O = Instantiate(nextForm, transform.parent);
+        O.transform.position = transform.position;
         Object.Destroy(this.gameObject);
     }
     public void ChangePreviusForm()
     {
-        Instantiate(previusForm, transform);
+        Player O = Instantiate(previusForm, transform.parent);
+        O.transform.position = transform.position;
         Object.Destroy(this.gameObject);
     }
 

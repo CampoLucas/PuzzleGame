@@ -18,13 +18,14 @@ GameObject:
   - component: {fileID: 3734262560967686841}
   - component: {fileID: 1355476290937762914}
   - component: {fileID: 1355476290937762898}
+  - component: {fileID: 918643414}
   m_Layer: 0
   m_Name: Player_Piramid
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1355476290937762909
 Transform:
   m_ObjectHideFlags: 0
@@ -33,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355476290937762908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.485, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4408750538531334618}
@@ -157,7 +158,7 @@ CapsuleCollider:
   m_Radius: 0.3521486
   m_Height: 0.7042972
   m_Direction: 1
-  m_Center: {x: 0, y: 0.3567699, z: 0}
+  m_Center: {x: 0, y: 0.33, z: 0}
 --- !u!65 &1355476290937762898
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -171,6 +172,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3694806, y: 0.3694806, z: 0.3694806}
   m_Center: {x: 0, y: 1.00677, z: 0.055933}
+--- !u!114 &918643414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355476290937762908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca878e11d3fc0f145b0017bb75ad09fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextForm: {fileID: 5065448733820907817, guid: e42d8a1f634270447ae70a73f9de63dd, type: 3}
+  previusForm: {fileID: 9160160434243573757, guid: 3d967dd566f75ae4a82492d649aec4af, type: 3}
 --- !u!1 &2095049068021976966
 GameObject:
   m_ObjectHideFlags: 0

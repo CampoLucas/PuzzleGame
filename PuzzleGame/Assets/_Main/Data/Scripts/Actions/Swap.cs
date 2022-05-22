@@ -44,6 +44,8 @@ public class Swap : MonoBehaviour
 
     }
 
+
+
     GameObject FindInActiveObjectByName(string name)
     {
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];

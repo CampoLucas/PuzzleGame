@@ -9,6 +9,7 @@ public class Player : Stats
     private PlayerState _status;
     private GrabObjects _grabObjects;
     private Swap _swapPlayer;
+    private SwapPrototype _swapPrototype;
     private void Awake()
     {
         _movement = GetComponent<IMovable>();
@@ -16,7 +17,7 @@ public class Player : Stats
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
         _swapPlayer = GetComponent<Swap>();
-
+        _swapPrototype = GetComponent<SwapPrototype>();
         
     }
 
@@ -47,6 +48,17 @@ public class Player : Stats
         {
             _swapPlayer.SwapPlayer();
         }
+    }
+
+    public void SwapNext()
+    {
+        _swapPrototype.ChangeNextForm();
+    }
+
+    public void SwapPrevius()
+    {
+        Debug.Log("Entra swap");
+        _swapPrototype.ChangePreviusForm();
     }
 
 }

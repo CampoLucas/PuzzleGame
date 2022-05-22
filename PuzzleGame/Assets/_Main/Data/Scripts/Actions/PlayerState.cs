@@ -6,7 +6,7 @@ public class PlayerState : MonoBehaviour
 {
 
     //layer floor
-    [SerializeField] private LayerMask floorLayerMask;
+   // [SerializeField] private LayerMask floorLayerMask;
 
     //IS GROUND FUNCTION
     public bool IsGrounded()

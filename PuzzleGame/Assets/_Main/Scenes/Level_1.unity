@@ -1033,6 +1033,10 @@ PrefabInstance:
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1053102123}
+    - target: {fileID: 4189212032604569026, guid: 6a95ad3f087ba8749999fbeb501ffc2a, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 4189212032604569028, guid: 6a95ad3f087ba8749999fbeb501ffc2a, type: 3}
       propertyPath: m_Name
       value: CircleButton

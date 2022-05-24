@@ -45,6 +45,9 @@ public class Swap : MonoBehaviour
     }
 
 
+    
+
+
 
     GameObject FindInActiveObjectByName(string name)
     {
@@ -62,4 +65,8 @@ public class Swap : MonoBehaviour
         return null;
     }
 
+    //private void Update()
+    //{
+    //    Physics.CheckBox()
+    //}
 }

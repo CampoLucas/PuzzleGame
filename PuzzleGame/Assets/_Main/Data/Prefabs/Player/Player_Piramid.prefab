@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1355476290937762914}
   - component: {fileID: 1355476290937762898}
   - component: {fileID: 918643414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player_Piramid
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3468842992788216800}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RayPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 1393751367928824760}
   - component: {fileID: 1614156896606207911}
   - component: {fileID: 4036002829608710847}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torzo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8691118650995507701}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 4408750538531334618}
   - component: {fileID: 34929635542753084}
   - component: {fileID: 3070059971779883491}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

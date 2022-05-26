@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    private float _currentForce;
     [SerializeField] private float force = 200f;
     [SerializeField] private LayerMask layerMask;
     
@@ -27,11 +28,29 @@ public class NewBehaviourScript : MonoBehaviour
         {
             foreach (Collider collition in hitColliders)
             {
-                collition.GetComponent<Rigidbody>().AddForce(transform.up * force * Time.deltaTime, ForceMode.Impulse);
+                Player player = collition.GetComponent<Player>();
+
+                if (player)
+                {
+                    if (player.Data.ID == "PSR")
+                        _currentForce = force * 2.5f;
+                    else if (player.Data.ID == "PPM")
+                        _currentForce = force / 15;
+                    else
+                        _currentForce = force / 2;
+                }
+                else
+                {
+                    _currentForce = force;
+                }
+                
+                
+                collition.GetComponent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Impulse);
             }
             i++;
         }
     }
+
     
     void OnDrawGizmos()
     {

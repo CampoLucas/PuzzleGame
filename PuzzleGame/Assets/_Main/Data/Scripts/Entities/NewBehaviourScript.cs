@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -10,51 +12,63 @@ public class NewBehaviourScript : MonoBehaviour
     
     [Header("collitionPos1")]
     [Header("Collition 1")]
-    [SerializeField] private Transform collition1;
-    [SerializeField] private Color color = Color.blue;
-    
+    [SerializeField] private Transform _collition1;
+    [SerializeField] private Color _color = Color.blue;
+
+    [Header("Events")] 
+    public UnityEvent OnCollition = new UnityEvent();
+
+    private Collider[] _hitColliders;
+
+    private void Start()
+    {
+        OnCollition.AddListener(TheCollition);
+    }
 
     private void FixedUpdate()
     {
         MyCollisions();
     }
 
-    void MyCollisions()
+    private void MyCollisions()
     {
-        Collider[] hitColliders = Physics.OverlapBox(collition1.position, collition1.localScale/2,
+        _hitColliders = Physics.OverlapBox(_collition1.position, _collition1.localScale/2,
             Quaternion.identity, layerMask);
         int i = 0;
-        if (hitColliders != null && i < hitColliders.Length)
+        if (_hitColliders != null && i < _hitColliders.Length)
         {
-            foreach (Collider collition in hitColliders)
-            {
-                Player player = collition.GetComponent<Player>();
-
-                if (player)
-                {
-                    if (player.Data.ID == "PSR")
-                        _currentForce = force * 2.5f;
-                    else if (player.Data.ID == "PPM")
-                        _currentForce = force / 15;
-                    else
-                        _currentForce = force / 2;
-                }
-                else
-                {
-                    _currentForce = force;
-                }
-                
-                
-                collition.GetComponent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Impulse);
-            }
+            OnCollition?.Invoke();
             i++;
         }
     }
 
+    private void TheCollition()
+    {
+        foreach (Collider collition in _hitColliders)
+        {
+            Player player = collition.GetComponent<Player>();
+
+            if (player)
+            {
+                if (player.Data.ID == "PSR")
+                    _currentForce = force * 2.5f;
+                else if (player.Data.ID == "PPM")
+                    _currentForce = force / 15;
+                else
+                    _currentForce = force / 2;
+            }
+            else
+            {
+                _currentForce = force;
+            }
+                
+            collition.GetComponent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Impulse);
+        }
+    }
     
     void OnDrawGizmos()
     {
-        Gizmos.color = color;
-        Gizmos.DrawWireCube(collition1.position, collition1.localScale);
+        Gizmos.color = _color;
+        Gizmos.DrawWireCube(_collition1.position, _collition1.localScale);
     }
 }

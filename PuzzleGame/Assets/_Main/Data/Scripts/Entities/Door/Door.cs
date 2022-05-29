@@ -50,7 +50,7 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (isOpened)
-            SceneManager.LoadScene(nextLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
+    private float _currentForce;
     [SerializeField] private float _force = 200f;
     void Start()
     {
@@ -18,6 +19,24 @@ public class Trampoline : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        other.GetComponent<Rigidbody>().AddForce(transform.up * _force * Time.deltaTime, ForceMode.Impulse);
+        Debug.Log("Trampoline contact");
+        Player _player = other.GetComponent<Player>();
+        if (_player != null)
+        {
+            if (_player.Data.ID == "PSR")
+                _currentForce = _force * 2.5f;
+            else if (_player.Data.ID == "PPM")
+                _currentForce = _force / 10;
+            else
+                _currentForce = _force / 2;
+
+            _player.GetComponent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Impulse);
+        }
+        else
+        {
+            _currentForce = _force;
+            other.GetComponent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Impulse);
+        }
+
     }
 }

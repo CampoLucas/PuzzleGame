@@ -142,18 +142,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Swap_Right",
+                    "name": "SwapL",
                     "type": "Button",
-                    "id": "7e19565e-8039-4204-beda-9441f5800bd1",
+                    "id": "ffb4c542-1062-4273-bd36-7c87fef8ec6a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Swap_Left",
+                    "name": "SwapR",
                     "type": "Button",
-                    "id": "ffb4c542-1062-4273-bd36-7c87fef8ec6a",
+                    "id": "c9248f5a-2087-495d-9423-c6753e5b3fea",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -199,7 +199,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Swap_Left",
+                    "action": "SwapL",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -217,7 +217,7 @@
                 {
                     "name": "",
                     "id": "ad555fac-9cf6-4559-a625-06e0c4608ff6",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -227,12 +227,12 @@
                 },
                 {
                     "name": "",
-                    "id": "0541d5af-89cf-4b2c-9426-2af61a34285a",
+                    "id": "ec23efcb-58a5-4ada-9280-147f741ddd93",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Swap_Right",
+                    "groups": "Keyboard",
+                    "action": "SwapR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

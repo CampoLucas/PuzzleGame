@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6629797300637803691, guid: 1a6e2eeab8511454b96ec8781333c5d2, type: 3}
+  - {fileID: 2100000, guid: cdb9e46c185c99a44b4763e7f0c33bd4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 5349945516107640107}
   - component: {fileID: 7720165476013302769}
   - component: {fileID: 7720165476013302768}
+  - component: {fileID: 1132366174}
   m_Layer: 0
   m_Name: Player_Sphere
   m_TagString: Player
@@ -223,9 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8223475272154064f914d9944c5b3d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &392445426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementForce: 0
   _maxSpeed: 0
+  _useGravity: 1
 --- !u!114 &7004210037707189604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpForce: 0
   _maxSpeed: 0
+  _useGravity: 1
 --- !u!114 &7679735735866379865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +315,20 @@ CapsuleCollider:
   m_Height: 0.56566244
   m_Direction: 1
   m_Center: {x: 0, y: 0.28, z: 0}
+--- !u!114 &1132366174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7720165476013302734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca878e11d3fc0f145b0017bb75ad09fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextForm: {fileID: 9160160434243573757, guid: 3d967dd566f75ae4a82492d649aec4af, type: 3}
+  previusForm: {fileID: 4584666416557729467, guid: bd273f6eabc779b4092dd08d392e2a12, type: 3}
 --- !u!1 &8499883085337489342
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +388,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6629797300637803691, guid: 1a6e2eeab8511454b96ec8781333c5d2, type: 3}
+  - {fileID: 2100000, guid: cdb9e46c185c99a44b4763e7f0c33bd4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

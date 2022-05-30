@@ -34,7 +34,7 @@ public class InputHandler : MonoBehaviour
         if (grab_Input) _player.GrabObject();
         //if (swap_Input) _player.SwapPlayer();
         if (swapLeft_Input) _player.SwapPrevius();
-        if (swapRight_Input) _player.SwapNext();
+        else if (swapRight_Input)  _player.SwapNext();
     }
 
     private void FixedUpdate()

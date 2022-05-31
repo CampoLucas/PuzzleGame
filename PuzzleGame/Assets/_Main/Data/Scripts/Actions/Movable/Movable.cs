@@ -6,6 +6,8 @@ public class Movable : MonoBehaviour, IMovable
 {
     private Rigidbody _rigidbody;
 
+    private Player _player;
+    
     public float MovementForce => _movementForce;
     [SerializeField] private float _movementForce;
 
@@ -21,6 +23,7 @@ public class Movable : MonoBehaviour, IMovable
 
     private void Awake()
     {
+        _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
         _stats = GetComponent<Player>().Data;
         InitStats();
@@ -43,7 +46,7 @@ public class Movable : MonoBehaviour, IMovable
 
         forceDirection = Vector3.zero;
         //Creo que esto deveria ir en otro script
-        if (_rigidbody.velocity.y < 0f && _useGravity)
+        if (_rigidbody.velocity.y < 0f && !_player.IsInteracting)
             _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime;
 
         Vector3 horizontalVelocity = _rigidbody.velocity;

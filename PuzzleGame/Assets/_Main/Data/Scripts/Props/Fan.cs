@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fun : Prop
+public class Fan : Prop
 {
     private Animator _anim;
-
-    [SerializeField] private bool _isOn = false;
-    public bool prevState;
-
-    private float _currentForce;
-    [SerializeField] private float _force = 200f;
-
+    
     public AudioSource turnOnSound;
     public AudioSource turnOffSound;
+    
+    [SerializeField] private float _force = 200f;
+    private float _currentForce;
+    
 
+    [SerializeField] private bool _state;
+    private bool prevState;
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -23,11 +23,11 @@ public class Fun : Prop
     // Update is called once per frame
     void Update()
     {
-        _anim.SetBool("IsOn", _isOn);
+        _anim.SetBool("IsOn", _state);
 
-        if (_isOn && prevState != _isOn)
+        if (_state && prevState != _state)
             TurnOn();
-        if (!_isOn && prevState != _isOn)
+        if (!_state && prevState != _state)
             TurnOff();
 
 
@@ -35,24 +35,23 @@ public class Fun : Prop
 
     private void TurnOn()
     {
-        prevState = _isOn;
+        prevState = _state;
         turnOnSound.pitch = 1;
         turnOnSound?.Play();
     }
 
     private void TurnOff()
     {
-        prevState = _isOn;
+        prevState = _state;
         turnOffSound.pitch = Random.Range(1.1f, 1.2f);
         turnOffSound?.Play();
     }
 
-    public void SetState(bool isOn) => _isOn = isOn;
-
+    public void SetState(bool isOn) => _state = isOn;
     protected override void OnTriggerStay(Collider other)
     {
         base.OnTriggerStay(other);
-        if (_isOn)
+        if (_state)
         {
             Player _player = other.GetComponent<Player>();
             if (_player != null)
@@ -77,7 +76,7 @@ public class Fun : Prop
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
-        if (_isOn)
+        if (_state)
         {
             Player player = other.GetComponent<Player>();
             if (player)

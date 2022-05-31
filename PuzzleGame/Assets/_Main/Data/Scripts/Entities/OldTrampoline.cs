@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trampoline : MonoBehaviour
+public class OldTrampoline : MonoBehaviour
 {
     private float _currentForce;
     [SerializeField] private float _force = 200f;

@@ -8,15 +8,17 @@ public class Player : Stats
     private IJumpable _jump;
     private PlayerState _status;
     private GrabObjects _grabObjects;
-    private Swap _swapPlayer;
     private SwapPrototype _swapPrototype;
+    
+    public bool IsGrounded => _status.IsGrounded;
+    public bool IsInteracting => _status.IsInteracting;
+
     private void Awake()
     {
         _movement = GetComponent<IMovable>();
         _jump = GetComponent<IJumpable>();
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
-        _swapPlayer = GetComponent<Swap>();
         _swapPrototype = GetComponent<SwapPrototype>();
         
     }
@@ -33,30 +35,12 @@ public class Player : Stats
             _jump.Jump();
     }
 
-    public bool isGrounded() => _status.IsGrounded();
-
     public void GrabObject()
     {
-        if (_grabObjects != null)
+        if (_grabObjects)
             _grabObjects.GrabObject();
     }
 
-    //public void SwapPlayer()
-    //{
-
-    //    if (_swapPlayer)
-    //    {
-    //        _swapPlayer.SwapPlayer();
-    //    }
-    //}
-
-    public void DisableGravity(bool isGravity)
-    {
-        if(_jump != null)
-            _jump.DisableGravity(isGravity);
-        if(_movement != null)
-            _movement.DisableGravity(isGravity);
-    }
 
     public void SwapNext()
     {
@@ -65,8 +49,12 @@ public class Player : Stats
 
     public void SwapPrevius()
     {
-        Debug.Log("Entra swap");
         _swapPrototype.ChangePreviusForm();
+    }
+    public void SetIsInteracting(bool isInteracting)
+    {
+        if(_status != null)
+            _status.SetIsInteracting(isInteracting);
     }
 
 }

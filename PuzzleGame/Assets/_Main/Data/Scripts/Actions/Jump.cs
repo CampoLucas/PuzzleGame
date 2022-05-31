@@ -39,7 +39,7 @@ public class Jump : MonoBehaviour
         Debug.Log("jump de Jump");
 
         //forceDirection = Vector3.zero;
-        if (_playerScript.isGrounded())
+        if (_playerScript.IsGrounded)
         forceDirection += Vector3.up * jumpForce;
         //_rigidbody.AddForce(Vector3.up * jumpForce); 
 

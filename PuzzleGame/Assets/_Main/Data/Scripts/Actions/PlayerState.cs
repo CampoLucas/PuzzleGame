@@ -13,7 +13,8 @@ public class PlayerState : MonoBehaviour
 
     private void Update()
     {
-        _isGrounded = Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 0.25f);
+        var transform1 = transform;
+        _isGrounded = Physics.Raycast(transform1.position, -transform1.up, out RaycastHit hit, 0.25f);
     }
 
     public void SetIsInteracting(bool isInteracting) => _isInteracting = isInteracting;

@@ -12,6 +12,12 @@ public class Swap : MonoBehaviour
     public int[] id;
     public bool[] state;
 
+    public StatsSO currentForm;
+
+    public StatsSO[] form = new StatsSO[1];
+
+    public int currentFormIndex = -1;
+
     public void SwapPlayer()
         {
         objSphere = FindInActiveObjectByName("Player_Sphere (1)");

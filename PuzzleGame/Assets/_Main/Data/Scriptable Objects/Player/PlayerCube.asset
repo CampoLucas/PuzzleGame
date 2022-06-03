@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43cec1a5771d514e8cedd1f98ab66a9, type: 3}
+  m_Name: PlayerCube
+  m_EditorClassIdentifier: 
+  _id: PCB
+  _modelPrefab: {fileID: 713669641053906140, guid: 009afe4dc8ab65b42bc6521605b1ba3e, type: 3}
+  _handPosition: {x: 0, y: 0.5, z: 0.819}
+  _stats:
+    movementForce: 4000
+    jumpForce: 8
+    maxSpeed: 4000
+  _rigidbody:
+    mass: 1
+    drag: 1
+    linearDrag: 1
+  _head:
+    bodyCenter: {x: 0, y: 0, z: 0}
+    bodyRadius: 0
+    bodyHeight: 0
+  _body:
+    bodyCenter: {x: 0, y: 0, z: 0}
+    bodyRadius: 0
+    bodyHeight: 0

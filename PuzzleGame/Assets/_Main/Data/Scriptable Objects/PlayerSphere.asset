@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: PlayerSphere
   m_EditorClassIdentifier: 
   _id: PSR
-  _speed: 6
-  _jumpSpeed: 5
   _movementForce: 1200
   _jumpForce: 8
   _maxSpeed: 2000
   _mass: 1
   _drag: 1
   _linearDrag: 0
+  _handPosition: {x: 0, y: 0, z: 0}
+  _bodyCenter: {x: 0, y: 0.29, z: 0}
+  _bodyRadius: 0.29
+  _bodyHeight: 0.56

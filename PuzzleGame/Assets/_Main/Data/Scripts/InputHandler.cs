@@ -14,7 +14,6 @@ public class InputHandler : MonoBehaviour
 
     bool jump_Input;
     bool grab_Input;
-    bool swap_Input;
     bool swapRight_Input;
     bool swapLeft_Input;
 
@@ -47,7 +46,6 @@ public class InputHandler : MonoBehaviour
 
         jump_Input = false;
         grab_Input = false;
-        swap_Input = false;
 
         swapLeft_Input = false;
         swapRight_Input = false;

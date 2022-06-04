@@ -6,34 +6,47 @@ using UnityEngine.Events;
 
 public class Swap2 : MonoBehaviour
 {
-    public StatsSO form;
+    public StatsSO CurrentForm => _currentForm;
+    [SerializeField] private StatsSO _currentForm;
+    
+    [Header("Forms Slots")]
+    [SerializeField] private StatsSO[] _formSlots = new StatsSO[1];
+    [SerializeField] private int _currentFormIndex = 0;
 
-    public StatsSO[] formSlots = new StatsSO[1];
+    //public List<StatsSO> formList;
+    
+    [Header("Everything else")]
+    [SerializeField] private GameObject _currentGameObject;
+    [SerializeField] private GameObject[] _formGameObjects;
+    [SerializeField] private Transform _hand;
+    [SerializeField] private Transform _rayPos;
+    private Rigidbody _rigidbody;
 
-    public int currentFormIndex = 0;
-
-    public List<StatsSO> formList;
-
+    
+    [Header("Events")]
     public UnityEvent onChangeForm = new UnityEvent();
 
     private void Awake()
     {
-        
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
-        form = formSlots[0];
+        _currentForm = _formSlots[0];
+        _currentGameObject = _formGameObjects[0];
     }
 
     public void ChangeRight()
     {
-        currentFormIndex = currentFormIndex + 1;
+        _currentFormIndex = _currentFormIndex + 1;
         
-        if (currentFormIndex > formSlots.Length - 1)
-            currentFormIndex = 0;
+        if (_currentFormIndex > _formSlots.Length - 1)
+            _currentFormIndex = 0;
 
         SlotOrder();
+        DisableModels();
+        ChangeValues();
         
         onChangeForm?.Invoke();
         
@@ -41,12 +54,14 @@ public class Swap2 : MonoBehaviour
     
     public void ChangeLeft()
     {
-        currentFormIndex = currentFormIndex - 1;
+        _currentFormIndex = _currentFormIndex - 1;
         
-        if (currentFormIndex < 0)
-            currentFormIndex = formSlots.Length - 1;
+        if (_currentFormIndex < 0)
+            _currentFormIndex = _formSlots.Length - 1;
 
         SlotOrder();
+        DisableModels();
+        ChangeValues();
         
         onChangeForm?.Invoke();
         
@@ -54,15 +69,40 @@ public class Swap2 : MonoBehaviour
 
     private void SlotOrder()
     {
-        for (int i = 0; i < formSlots.Length; i++)
+        for (int i = 0; i < _formSlots.Length; i++)
         {
-            if (formSlots[i] != null)
-                form = formSlots[currentFormIndex];
+            if (_formSlots[i] != null)
+                _currentForm = _formSlots[_currentFormIndex];
             else
-                currentFormIndex = currentFormIndex + 1;
+                _currentFormIndex = _currentFormIndex + 1;
         }
     }
 
+    private void DisableModels()
+    {
+        for (int i = 0; i < _formGameObjects.Length; i++)
+        {
+            
+            if (_formGameObjects[i] != _formGameObjects[_currentFormIndex])
+                _formGameObjects[i].SetActive(false);
+            else
+                _formGameObjects[i].SetActive(true);
+        }
+        
+    }
+
+    private void ChangeValues()
+    {
+        //_hand.position = _currentForm.HandPosition;
+        //_rayPos.position = _currentForm.RayPosition;
+        
+        _hand.position = _currentForm.HandPosition + transform.position;
+        _rayPos.position = _currentForm.RayPosition + transform.position;
+
+        _rigidbody.mass = _currentForm.Mass;
+        _rigidbody.drag = _currentForm.Drag;
+    }
+    
     public void ChangeFormRight()
     {
         // currentFormIndex = currentFormIndex + 1;
@@ -79,7 +119,7 @@ public class Swap2 : MonoBehaviour
         // else if (currentFormIndex == 1 && formSlots[1] == null)
         //     currentFormIndex = currentFormIndex + 1;
         
-        currentFormIndex = currentFormIndex + 1;
+        _currentFormIndex = _currentFormIndex + 1;
         
         // if (currentFormIndex > formSlots.Length - 1)
         //     currentFormIndex = 0;
@@ -106,15 +146,15 @@ public class Swap2 : MonoBehaviour
         //         return;
         // }
         
-        if (currentFormIndex > formSlots.Length - 1)
-            currentFormIndex = 0;
+        if (_currentFormIndex > _formSlots.Length - 1)
+            _currentFormIndex = 0;
 
-        for (int i = 0; i < formSlots.Length; i++)
+        for (int i = 0; i < _formSlots.Length; i++)
         {
-            if (formSlots[i] != null)
-                form = formSlots[currentFormIndex];
+            if (_formSlots[i] != null)
+                _currentForm = _formSlots[_currentFormIndex];
             else
-                currentFormIndex = currentFormIndex + 1;
+                _currentFormIndex = _currentFormIndex + 1;
         }
         
         onChangeForm?.Invoke();

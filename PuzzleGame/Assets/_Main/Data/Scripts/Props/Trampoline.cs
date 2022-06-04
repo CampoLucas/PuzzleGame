@@ -11,7 +11,7 @@ public class Trampoline : Prop
     protected override void OnTriggerStay(Collider other)
     {
         base.OnTriggerStay(other);
-        Player player = other.GetComponent<Player>();
+        Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
         
         if (player)
         {
@@ -21,29 +21,31 @@ public class Trampoline : Prop
                 _currentForce = force / 2;
             else
                 _currentForce = force;
+            other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Impulse);
         }
         else
         {
             _currentForce = force;
+            other.GetComponent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Impulse);
         }
         
-        other.GetComponent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Impulse);
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
-        Player player = other.GetComponent<Player>();
+        Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
         if (player)
         {
             player.SetIsInteracting(true);
+            Debug.Log("Player collide");
         }
     }
     
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-        Player player = other.GetComponent<Player>();
+        Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
         if (player)
         {
             player.SetIsInteracting(false);

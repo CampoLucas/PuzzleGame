@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Actions/Swap/Swap2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/Fun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/NewBehaviourScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Fan.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -87,7 +88,8 @@
       <workItem from="1654103387137" duration="85000" />
       <workItem from="1654103501045" duration="620000" />
       <workItem from="1654203465297" duration="1785000" />
-      <workItem from="1654268970293" duration="6412000" />
+      <workItem from="1654268970293" duration="7056000" />
+      <workItem from="1654377117525" duration="6595000" />
     </task>
     <servers />
   </component>

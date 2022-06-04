@@ -74,7 +74,7 @@ public class Player : Stats
 
     private void UpdateStats()
     {
-        _stats = _swap2.form;
+        _stats = _swap2.CurrentForm;
     }
 
 }

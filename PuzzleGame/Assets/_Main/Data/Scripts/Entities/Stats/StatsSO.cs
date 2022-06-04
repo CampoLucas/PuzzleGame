@@ -7,10 +7,12 @@ public class StatsSO : ScriptableObject
 {
     public string ID => _id;
     [SerializeField] private string _id;
-    public GameObject ModelPrefab => _modelPrefab;
-    [SerializeField] private GameObject _modelPrefab;
+    
     public Vector3 HandPosition => _handPosition;
     [SerializeField]private Vector3 _handPosition;
+    
+    public Vector3 RayPosition => _rayPosition;
+    [SerializeField]private Vector3 _rayPosition;
     
     public float MovementForce => _stats.movementForce; 
     public float JumpForce => _stats.jumpForce;
@@ -19,13 +21,10 @@ public class StatsSO : ScriptableObject
 
     public float Mass => _rigidbody.mass;
     public float Drag => _rigidbody.drag;
-    public float LinearDrag => _rigidbody.linearDrag;
     
 
     [SerializeField] private StatValues _stats;
     [SerializeField] private RigidBodyValues _rigidbody;
-    [SerializeField] private ColliderValues _head;
-    [SerializeField] private ColliderValues _body;
 
 }
 
@@ -41,12 +40,4 @@ public struct RigidBodyValues
 {
     public float mass;
     public float drag;
-    public float linearDrag;
-}
-[System.Serializable]
-public struct ColliderValues
-{
-    public Vector3 bodyCenter;
-    public float bodyRadius;
-    public float bodyHeight;
 }

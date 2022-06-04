@@ -6,15 +6,16 @@ public class Fan : Prop
 {
     private Animator _anim;
     
-    public AudioSource turnOnSound;
-    public AudioSource turnOffSound;
-    
-    [SerializeField] private float _force = 200f;
-    private float _currentForce;
-    
-
     [SerializeField] private bool _state;
     private bool prevState;
+    
+    
+    private float _currentForce;
+    [SerializeField] private float _force = 200f;
+    
+    public AudioSource turnOnSound;
+    public AudioSource turnOffSound;
+
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -53,7 +54,7 @@ public class Fan : Prop
         base.OnTriggerStay(other);
         if (_state)
         {
-            Player _player = other.GetComponent<Player>();
+            Player _player = other.GetComponent<Collider>().GetComponentInParent<Player>();
             if (_player != null)
             {
                 if (_player.Data.ID == "PPM")
@@ -62,7 +63,7 @@ public class Fan : Prop
                     _currentForce = _force;
                 else
                     _currentForce = 0f;
-                _player.GetComponent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
+                other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
             }
             else
             {
@@ -78,7 +79,7 @@ public class Fan : Prop
         base.OnTriggerEnter(other);
         if (_state)
         {
-            Player player = other.GetComponent<Player>();
+            Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
             if (player)
                 player.SetIsInteracting(true);
         }
@@ -87,7 +88,7 @@ public class Fan : Prop
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-        Player player = other.GetComponent<Player>();
+        Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
         if (player)
             player.SetIsInteracting(false);
     }

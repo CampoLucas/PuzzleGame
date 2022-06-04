@@ -7,13 +7,7 @@ public class Jumpable : MonoBehaviour, IJumpable
     private Player _player;
     private Rigidbody _rigidbody;
 
-    public float JumpForce => _jumpForce;
-    [SerializeField] private float _jumpForce;
-    public float MaxSpeed => _maxSpeed;
-    [SerializeField] private float _maxSpeed;
-
-    [SerializeField] private bool _useGravity = true;
-
+    
     private Vector3 _forceDirection = Vector3.zero;
 
 
@@ -25,15 +19,7 @@ public class Jumpable : MonoBehaviour, IJumpable
         _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
         _stats = _player.Data;
-        InitStats();
     }
-
-    private void InitStats()
-    {
-        _jumpForce = _stats.JumpForce;
-        _maxSpeed = _stats.MaxSpeed;
-    }
-
     private void FixedUpdate()
     {
         _rigidbody.AddForce(_forceDirection, ForceMode.Impulse);
@@ -43,14 +29,13 @@ public class Jumpable : MonoBehaviour, IJumpable
             _rigidbody.velocity -= Vector3.down * (Physics.gravity.y * Time.fixedDeltaTime);
         var horizontalVelocity = _rigidbody.velocity;
         horizontalVelocity.y = 0;
-        if (horizontalVelocity.sqrMagnitude > _maxSpeed * _maxSpeed)
-            _rigidbody.velocity = horizontalVelocity.normalized * _maxSpeed + Vector3.up * _rigidbody.velocity.y;
+        if (horizontalVelocity.sqrMagnitude > _player.Data.MaxSpeed * _player.Data.MaxSpeed)
+            _rigidbody.velocity = horizontalVelocity.normalized * _player.Data.MaxSpeed + Vector3.up * _rigidbody.velocity.y;
     }
     public void Jump()
     {
         if (_player.IsGrounded && !_player.IsInteracting)
-            _forceDirection += Vector3.up * _jumpForce;
+            _forceDirection += Vector3.up * _player.Data.JumpForce;
     }
 
-    public void DisableGravity(bool isGravity) => _useGravity = isGravity;
 }

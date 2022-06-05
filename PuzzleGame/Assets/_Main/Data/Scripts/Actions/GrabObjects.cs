@@ -45,4 +45,10 @@ public class GrabObjects : MonoBehaviour
 
     }
 
+    public void UpdateBoxPos()
+    {
+        if (_grabbedObject != null)
+            _grabbedObject.transform.position = _hand.transform.position;
+    }
+
 }

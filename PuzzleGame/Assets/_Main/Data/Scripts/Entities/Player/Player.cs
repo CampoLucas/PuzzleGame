@@ -75,6 +75,9 @@ public class Player : Stats
     private void UpdateStats()
     {
         _stats = _swap2.CurrentForm;
+        
+        if(_grabObjects)
+            _grabObjects.UpdateBoxPos();
     }
 
 }

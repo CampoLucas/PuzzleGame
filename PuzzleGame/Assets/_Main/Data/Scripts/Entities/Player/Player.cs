@@ -26,7 +26,8 @@ public class Player : Entity
         _jump = GetComponent<IJumpable>();
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
-        //_swapPrototype = GetComponent<SwapPrototype>();
+        
+        
         _swap = GetComponent<Swap>();
 
     }

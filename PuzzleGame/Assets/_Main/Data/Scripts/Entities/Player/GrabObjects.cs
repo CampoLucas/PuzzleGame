@@ -7,7 +7,7 @@ public class GrabObjects : MonoBehaviour
 {
     private GameObject _grabbedObject;
 
-    private Entity _player;
+    private Player _player;
 
     [SerializeField] private Transform _rayPoint;
     [SerializeField] private Transform _hand;
@@ -17,7 +17,7 @@ public class GrabObjects : MonoBehaviour
 
     private void Awake()
     {
-        _player = GetComponent<Entity>();
+        _player = GetComponent<Player>();
     }
 
     private void Start()
@@ -59,7 +59,7 @@ public class GrabObjects : MonoBehaviour
 
     public void DropObj()
     {
-        if (_grabbedObject != null)
+        if (_grabbedObject)
         {
             _grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
             //_grabbedObject.GetComponent<Rigidbody>().useGravity = true;
@@ -71,7 +71,7 @@ public class GrabObjects : MonoBehaviour
 
     public void UpdateBoxPos()
     {
-        if (_grabbedObject != null)
+        if (_grabbedObject)
             _grabbedObject.transform.position = _hand.transform.position;
     }
 

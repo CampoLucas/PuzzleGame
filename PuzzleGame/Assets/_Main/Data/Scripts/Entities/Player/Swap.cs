@@ -71,7 +71,7 @@ public class Swap : MonoBehaviour
     {
         for (int i = 0; i < _formSlots.Length; i++)
         {
-            if (_formSlots[i] != null)
+            if (_formSlots[i])
                 _currentForm = _formSlots[_currentFormIndex];
             else
                 _currentFormIndex = _currentFormIndex + 1;

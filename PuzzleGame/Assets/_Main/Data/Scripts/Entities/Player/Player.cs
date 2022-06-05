@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class Player : Stats
+public class Player : Entity
 {
     private IMovable _movement;
     private IJumpable _jump;
@@ -12,26 +12,29 @@ public class Player : Stats
     private PlayerState _status;
     private GrabObjects _grabObjects;
     
-    //private SwapPrototype _swapPrototype;
-    private Swap2 _swap2;
+    private Swap _swap;
     
     public bool IsGrounded => _status.IsGrounded;
     public bool IsInteracting => _status.IsInteracting;
 
-    private void Awake()
+    
+
+    protected override void Awake()
     {
+        base.Awake();
         _movement = GetComponent<IMovable>();
         _jump = GetComponent<IJumpable>();
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
         //_swapPrototype = GetComponent<SwapPrototype>();
-        _swap2 = GetComponent<Swap2>();
+        _swap = GetComponent<Swap>();
 
     }
 
-    private void Start()
+    protected override void Start()
     {
-        _swap2.onChangeForm.AddListener(UpdateStats);
+        base.Start();
+        _swap.onChangeForm.AddListener(UpdateStats);
     }
 
     public void Move(Vector3 direction)
@@ -56,15 +59,15 @@ public class Player : Stats
     public void SwapNext()
     {
         //_swapPrototype.ChangeNextForm();
-        if(_swap2)
-            _swap2.ChangeRight();
+        if(_swap)
+            _swap.ChangeRight();
     }
 
     public void SwapPrevius()
     {
         //_swapPrototype.ChangePreviusForm();
-        if(_swap2)
-            _swap2.ChangeLeft();
+        if(_swap)
+            _swap.ChangeLeft();
     }
     public void SetIsInteracting(bool isInteracting)
     {
@@ -74,7 +77,7 @@ public class Player : Stats
 
     private void UpdateStats()
     {
-        _stats = _swap2.CurrentForm;
+        _stats = _swap.CurrentForm;
         
         if(_grabObjects)
             _grabObjects.UpdateBoxPos();

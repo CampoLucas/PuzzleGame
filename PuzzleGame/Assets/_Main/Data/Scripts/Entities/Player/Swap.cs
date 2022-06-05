@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Swap2 : MonoBehaviour
+public class Swap : MonoBehaviour
 {
     public StatsSO CurrentForm => _currentForm;
     [SerializeField] private StatsSO _currentForm;

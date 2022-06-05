@@ -38,6 +38,6 @@ public struct StatValues
 [System.Serializable]
 public struct RigidBodyValues
 {
-    public float mass;
+    [Range(0.00001f, 10)]public float mass;
     public float drag;
 }

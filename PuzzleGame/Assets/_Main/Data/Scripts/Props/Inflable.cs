@@ -8,14 +8,12 @@ public class Inflable : MonoBehaviour
     public bool prevState;
 
     private Animator _anim;
-   
-    private Player player;
-
+       
     private void Awake()
     {
         _anim = GetComponent<Animator>();
     } 
-
+    
     void Update()
     {
         _anim.SetBool("IsPressed", IsPressed);
@@ -24,33 +22,27 @@ public class Inflable : MonoBehaviour
             Inflate();
         if (!IsPressed && prevState != IsPressed)
             Deflate();
-
     }
 
     private void Inflate()
     {
         prevState = IsPressed;
-        
     }
 
     private void Deflate()
     {
         prevState = IsPressed;
-        
     }
 
     public void Setinflate(bool isOpen) => IsPressed = isOpen;
 
-
-
-
-
-
     private void OnTriggerEnter(Collider other)
-    {     
+    {
+        Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
+
         if (player)
         {
-            if (player.Data.ID == "PSR")
+            if (player.Data.ID == "PSR" && IsPressed)
             {
                 _anim.SetBool("IsSphereOn", true);
             }

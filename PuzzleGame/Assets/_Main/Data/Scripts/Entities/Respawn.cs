@@ -11,15 +11,15 @@ public class Respawn : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-    }
-
-    private void Start()
-    {
         if (!spawnPos)
         {
             spawnPos = new GameObject().transform;
             spawnPos.position = transform.position;
         }
+    }
+
+    private void Start()
+    {
     }
 
     public void EntityRespawn()

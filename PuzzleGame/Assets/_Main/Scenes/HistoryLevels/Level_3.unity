@@ -3757,7 +3757,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1940922505, guid: f4364ff61dfb6604c986d165883304d5, type: 3}
       propertyPath: _force
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 818010658324217261, guid: f4364ff61dfb6604c986d165883304d5, type: 3}
       propertyPath: m_Mesh

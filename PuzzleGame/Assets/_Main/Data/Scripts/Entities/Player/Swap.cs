@@ -44,9 +44,9 @@ public class Swap : MonoBehaviour
         if (_currentFormIndex > _formSlots.Length - 1)
             _currentFormIndex = 0;
 
-        //SlotOrder();
-        //DisableModels();
-        //ChangeValues();
+        SlotOrder();
+        DisableModels();
+        ChangeValues();
         
         onChangeForm?.Invoke();
         
@@ -59,9 +59,9 @@ public class Swap : MonoBehaviour
         if (_currentFormIndex < 0)
             _currentFormIndex = _formSlots.Length - 1;
 
-        //SlotOrder();
-        //DisableModels();
-        //ChangeValues();
+        SlotOrder();
+        DisableModels();
+        ChangeValues();
         
         onChangeForm?.Invoke();
         

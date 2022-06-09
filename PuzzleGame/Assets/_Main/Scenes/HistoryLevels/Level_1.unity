@@ -2274,6 +2274,14 @@ PrefabInstance:
       propertyPath: _formGameObjects.Array.data[1]
       value: 
       objectReference: {fileID: 1857036939}
+    - target: {fileID: 3002208007529237686, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_Drag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237686, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3002208007529237688, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: _stats
       value: 

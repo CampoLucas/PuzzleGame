@@ -35,6 +35,7 @@ public class Player : Entity
     {
         base.Start();
         _swap.onChangeForm.AddListener(UpdateStats);
+        UpdateStats();
     }
 
     public void Move(Vector3 direction)
@@ -77,9 +78,14 @@ public class Player : Entity
 
     private void UpdateStats()
     {
-        _stats = _swap.CurrentForm;
-        
-        if(_grabObjects)
+        if(!_swap.CurrentForm)
+            _stats = _swap.CurrentForm;
+
+        _swap.SlotOrder();
+        _swap.DisableModels();
+        _swap.ChangeValues();
+
+        if (_grabObjects)
             _grabObjects.UpdateBoxPos();
     }
 

@@ -16,8 +16,8 @@ MonoBehaviour:
   _handPosition: {x: 0, y: 0.5, z: 0.819}
   _rayPosition: {x: 0, y: 0.25, z: 0.474}
   _stats:
-    movementForce: 3000
-    jumpForce: 8
+    movementForce: 4000
+    jumpForce: 6
     maxSpeed: 1000
   _rigidbody:
     mass: 2

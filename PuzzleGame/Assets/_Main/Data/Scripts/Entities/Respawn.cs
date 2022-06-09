@@ -20,7 +20,6 @@ public class Respawn : MonoBehaviour
 
     private void Start()
     {
-        
     }
 
     public void EntityRespawn()

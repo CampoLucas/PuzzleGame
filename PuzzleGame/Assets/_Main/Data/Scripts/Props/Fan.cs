@@ -68,7 +68,8 @@ public class Fan : Prop
             {
                 _currentForce = _force;
             }
-            other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
+                
+                other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
         }
     }
     

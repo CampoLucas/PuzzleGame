@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,9 @@ public class StatsSO : ScriptableObject
 {
     public string ID => _id;
     [SerializeField] private string _id;
-    
+
+    public ObjType Type => _type;
+    [SerializeField] private ObjType _type = ObjType.normal;
     public Vector3 HandPosition => _handPosition;
     [SerializeField]private Vector3 _handPosition;
     
@@ -40,4 +43,12 @@ public struct RigidBodyValues
 {
     [Range(0.00001f, 10)]public float mass;
     public float drag;
+}
+
+public enum ObjType
+{
+    normal,
+    light,
+    heavy,
+    wood
 }

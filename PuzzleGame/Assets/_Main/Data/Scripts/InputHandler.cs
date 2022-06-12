@@ -16,6 +16,7 @@ public class InputHandler : MonoBehaviour
     bool grab_Input;
     bool swapRight_Input;
     bool swapLeft_Input;
+    private bool action_Input;
 
     private Vector2 _movementInput;
 
@@ -32,8 +33,11 @@ public class InputHandler : MonoBehaviour
         if (jump_Input) _player.Jump();
         if (grab_Input) _player.GrabObject();
         //if (swap_Input) _player.SwapPlayer();
+        
         if (swapLeft_Input) _player.SwapPrevius();
         else if (swapRight_Input)  _player.SwapNext();
+        
+        if(action_Input) _player.Action();
     }
 
     private void FixedUpdate()
@@ -50,6 +54,8 @@ public class InputHandler : MonoBehaviour
         swapLeft_Input = false;
         swapRight_Input = false;
 
+        action_Input = false;
+
     }
 
     private void OnEnable()
@@ -63,6 +69,7 @@ public class InputHandler : MonoBehaviour
             _inputActions.PlayerActions.Grab.performed += i => grab_Input = true;
             _inputActions.PlayerActions.SwapL.performed += i => swapLeft_Input = true;
             _inputActions.PlayerActions.SwapR.performed += i => swapRight_Input = true;
+            _inputActions.PlayerActions.Action.performed += i => action_Input = true;
         }
         _inputActions.Enable();
     }

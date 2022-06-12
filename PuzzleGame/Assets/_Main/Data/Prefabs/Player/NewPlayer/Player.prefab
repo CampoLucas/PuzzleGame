@@ -119,6 +119,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGrounded: 0
   _isInteracting: 0
+  _feet: {fileID: 1134513917069397554}
+  _player:
+    serializedVersion: 2
+    m_Bits: 503
 --- !u!114 &3002208007529237685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 3084520420685323287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.05, z: 0.5}
   m_Children: []
   m_Father: {fileID: 3002208007529237689}
   m_RootOrder: 5
@@ -289,13 +293,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -9143450767860132912, guid: 179b412820a03f846b3c69e5f1e5bcf9, type: 3}
+    - target: {fileID: 713669639609978966, guid: 009afe4dc8ab65b42bc6521605b1ba3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 713669641053906140, guid: 009afe4dc8ab65b42bc6521605b1ba3e, type: 3}
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
     - target: {fileID: 713669641053906140, guid: 009afe4dc8ab65b42bc6521605b1ba3e, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 713669641053906140, guid: 009afe4dc8ab65b42bc6521605b1ba3e, type: 3}
       propertyPath: m_IsActive
@@ -349,6 +357,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -4691030254233785248, guid: 179b412820a03f846b3c69e5f1e5bcf9, type: 3}
+    - target: {fileID: 713669641358241599, guid: 009afe4dc8ab65b42bc6521605b1ba3e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009afe4dc8ab65b42bc6521605b1ba3e, type: 3}
 --- !u!1 &2327950371630200299 stripped

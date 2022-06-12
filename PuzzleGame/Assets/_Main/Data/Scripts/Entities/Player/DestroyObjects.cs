@@ -19,10 +19,10 @@ public class DestroyObjects : MonoBehaviour
             Entity obj = other.GetComponent<Collider>().GetComponentInParent<Entity>();
             if (obj && obj.Data.Type == ObjType.wood)
             {
-                if(obj.Data.ID == "Wood_Box")
-                    obj.Respawn();
-                else
-                    other.gameObject.SetActive(false);
+                // if(obj.Data.ID == "Wood_Box")
+                //     obj.Respawn();
+                // else
+                other.gameObject.SetActive(false);
             }
         }
     }

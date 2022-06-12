@@ -39,6 +39,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "rider.run.widget.enabled.cache": "false",
     "settings.editor.selected.configurable": "preferences.sourceCode.C#",
     "vue.rearranger.settings.migration": "true"
@@ -100,7 +101,7 @@
       <workItem from="1654377117525" duration="6878000" />
       <workItem from="1654442032278" duration="5262000" />
       <workItem from="1654460416817" duration="1206000" />
-      <workItem from="1655032463422" duration="2229000" />
+      <workItem from="1655032463422" duration="3137000" />
     </task>
     <servers />
   </component>

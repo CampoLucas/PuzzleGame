@@ -25,6 +25,8 @@ public class Respawn : MonoBehaviour
     public void EntityRespawn()
     {
         transform.position = spawnPos.transform.position;
+        if (!_rigidbody) gameObject.AddComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.velocity = Vector3.zero;
     }
 }

@@ -93,8 +93,8 @@ public class Swap : MonoBehaviour
 
     public void ChangeValues()
     {
-        _hand.position = _currentForm.HandPosition + transform.position;
-        _rayPos.position = _currentForm.RayPosition + transform.position;
+        // _hand.position = _currentForm.HandPosition;
+        // _rayPos.position = _currentForm.RayPosition + transform.position;
 
         _rigidbody.mass = _currentForm.Mass;
         _rigidbody.drag = _currentForm.Drag;

@@ -79,7 +79,8 @@ public class GrabObjects : MonoBehaviour
 
     private void GrabObj()
     {
-        _grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+        if (!_grabbedObject) return;
+        Destroy(_grabbedObject.GetComponent<Rigidbody>()); // .isKinematic = true;
         //_grabbedObject.GetComponent<Rigidbody>().useGravity = false;
         _grabbedObject.transform.position = _hand.position;
         _grabbedObject.transform.SetParent(transform);
@@ -89,7 +90,7 @@ public class GrabObjects : MonoBehaviour
     {
         if (_grabbedObject)
         {
-            _grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            _grabbedObject.AddComponent<Rigidbody>(); 
             //_grabbedObject.GetComponent<Rigidbody>().useGravity = true;
             _grabbedObject.transform.SetParent(null);
             _grabbedObject = null;

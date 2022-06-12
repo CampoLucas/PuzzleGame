@@ -57,9 +57,9 @@ public class Fan : Prop
             Player _player = other.GetComponent<Collider>().GetComponentInParent<Player>();
             if (_player != null)
             {
-                if (_player.Data.ID == "PPM")
+                if (_player.Data.ID == "Player_Pyramid")
                     _currentForce = _force * 2.5f;
-                else if (_player.Data.ID == "PSR")
+                else if (_player.Data.ID == "Player_Sphere")
                     _currentForce = _force;
                 else
                     _currentForce = 0f;

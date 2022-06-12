@@ -8,11 +8,11 @@ public class Button : MonoBehaviour
     private Animator _anim;
 
 
-    [SerializeField] private LayerMask _pressMask;
-
     [SerializeField] private Collider _button;
+    
     public bool isPressed;
     public bool prevPressedState;
+    
     public AudioSource pressedSound;
     public AudioSource releasedSound;
     public UnityEvent onPressed;
@@ -50,21 +50,18 @@ public class Button : MonoBehaviour
         onReleased.Invoke();
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        if(((1 << other.gameObject.layer) & _pressMask) != 0)
-            isPressed = true;
+        isPressed = true;
     }
-    private void OnTriggerStay(Collider other)
+    protected virtual void OnTriggerStay(Collider other)
     {
-        if (((1 << other.gameObject.layer) & _pressMask) != 0)
-            isPressed = true;
+        isPressed = true;
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
-        if (((1 << other.gameObject.layer) & _pressMask) != 0)
-            isPressed = false;
+        isPressed = false;
     }
 
     public void WritePressed() => Debug.Log("Pressed");

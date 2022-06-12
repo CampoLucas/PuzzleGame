@@ -513,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6133764007972936445, guid: d71c6798ff38ff34ebeff452afdc0212, type: 3}
       propertyPath: m_Name
-      value: Piramid
+      value: Pyramid
       objectReference: {fileID: 0}
     - target: {fileID: 6133764007972936445, guid: d71c6798ff38ff34ebeff452afdc0212, type: 3}
       propertyPath: m_IsActive

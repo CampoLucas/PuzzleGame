@@ -674,7 +674,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1387985749632167433, guid: b6c8b9e8c45fe2d4aa3a19e56acd55ba, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1387985749632167433, guid: b6c8b9e8c45fe2d4aa3a19e56acd55ba, type: 3}
       propertyPath: m_LocalScale.x
@@ -871,49 +871,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1796851485}
     m_Modifications:
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: _button
-      value: 
-      objectReference: {fileID: 1044046847}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: pressedSound
-      value: 
-      objectReference: {fileID: 1044046846}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: releasedSound
-      value: 
-      objectReference: {fileID: 1044046846}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1053102123}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Door, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8193844145461671384, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -962,24 +922,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareButton
       objectReference: {fileID: 0}
-    - target: {fileID: 8862434783466647406, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1053102123}
-    - target: {fileID: 8862434783466647406, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 8862434783466647406, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Door, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8862434783466647406, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8862434783466647406, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
 --- !u!1 &866387197
 GameObject:
@@ -1386,16 +1329,6 @@ MeshFilter:
 --- !u!4 &1044046845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8193844145461671384, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-  m_PrefabInstance: {fileID: 795795347}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1044046846 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8862434783466647401, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
-  m_PrefabInstance: {fileID: 795795347}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1044046847 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 8862434783466647400, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
   m_PrefabInstance: {fileID: 795795347}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1053102123 stripped

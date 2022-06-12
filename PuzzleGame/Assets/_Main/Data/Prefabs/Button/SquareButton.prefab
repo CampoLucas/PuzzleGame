@@ -173,7 +173,6 @@ GameObject:
   - component: {fileID: 8193844145461671384}
   - component: {fileID: 8862434783466647405}
   - component: {fileID: 7513032117965279245}
-  - component: {fileID: 8862434783466647406}
   - component: {fileID: 8862434783466647407}
   - component: {fileID: 8862434783466647404}
   - component: {fileID: 8862434783466647400}
@@ -232,29 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e444f79d23ed37f4fa0884c66ba7e976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
-  isPressed: 0
-  prevPressedState: 0
-  pressedSound: {fileID: 0}
-  releasedSound: {fileID: 0}
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8862434783466647406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8862434783466647394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05967bd4350d54e48aa9f6bf1d7239ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _button: {fileID: 8862434783466647400}
   isPressed: 0
   prevPressedState: 0
@@ -264,8 +240,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Fan, Assembly-CSharp
-        m_MethodName: SetState
+        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+        m_MethodName: SetDoor
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -273,7 +249,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   onReleased:
     m_PersistentCalls:

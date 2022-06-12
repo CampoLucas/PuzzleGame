@@ -189,6 +189,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Action"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a5b1d18-9552-429a-9e22-76c207c23b13"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2043cccd-5c86-4050-98f0-55268f65f21a"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""SwapL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91790ac8-df0a-447b-8995-9f3ccedccc86"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwapL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7676eb01-a8e9-46b4-bd87-18853772042f"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
@@ -255,6 +286,50 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""SwapR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9d06161-d8ef-4fd3-bdbb-0e127f6542a3"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""SwapR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45d7814c-3917-4f73-9aaa-7c15782a6cb1"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwapR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""974ad21f-f9ec-4f73-8a1a-703b6b417a38"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c97f56d-fa2c-4594-bcc0-688a51ae2845"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -295,6 +370,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerActions_SwapL = m_PlayerActions.FindAction("SwapL", throwIfNotFound: true);
         m_PlayerActions_SwapR = m_PlayerActions.FindAction("SwapR", throwIfNotFound: true);
         m_PlayerActions_Grab = m_PlayerActions.FindAction("Grab", throwIfNotFound: true);
+        m_PlayerActions_Action = m_PlayerActions.FindAction("Action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -391,6 +467,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_SwapL;
     private readonly InputAction m_PlayerActions_SwapR;
     private readonly InputAction m_PlayerActions_Grab;
+    private readonly InputAction m_PlayerActions_Action;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -399,6 +476,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @SwapL => m_Wrapper.m_PlayerActions_SwapL;
         public InputAction @SwapR => m_Wrapper.m_PlayerActions_SwapR;
         public InputAction @Grab => m_Wrapper.m_PlayerActions_Grab;
+        public InputAction @Action => m_Wrapper.m_PlayerActions_Action;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -420,6 +498,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Grab.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnGrab;
                 @Grab.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnGrab;
                 @Grab.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnGrab;
+                @Action.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAction;
+                @Action.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAction;
+                @Action.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAction;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -436,6 +517,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Grab.started += instance.OnGrab;
                 @Grab.performed += instance.OnGrab;
                 @Grab.canceled += instance.OnGrab;
+                @Action.started += instance.OnAction;
+                @Action.performed += instance.OnAction;
+                @Action.canceled += instance.OnAction;
             }
         }
     }
@@ -468,5 +552,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnSwapL(InputAction.CallbackContext context);
         void OnSwapR(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
+        void OnAction(InputAction.CallbackContext context);
     }
 }

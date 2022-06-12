@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerCube
   m_EditorClassIdentifier: 
   _id: Player_Cube
+  _type: 2
   _handPosition: {x: 0, y: 0.5, z: 0.819}
   _rayPosition: {x: 0, y: 0.25, z: 0.474}
   _stats:

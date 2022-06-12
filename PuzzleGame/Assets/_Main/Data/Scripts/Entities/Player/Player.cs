@@ -11,6 +11,8 @@ public class Player : Entity
     
     private PlayerState _status;
     private GrabObjects _grabObjects;
+
+    private DestroyObjects _destroyObjects;
     
     private Swap _swap;
     
@@ -26,6 +28,7 @@ public class Player : Entity
         _jump = GetComponent<IJumpable>();
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
+        _destroyObjects = GetComponent<DestroyObjects>();
         
         
         _swap = GetComponent<Swap>();
@@ -87,6 +90,13 @@ public class Player : Entity
 
         if (_grabObjects)
             _grabObjects.UpdateBoxPos();
+    }
+
+    public void Action()
+    {
+        if (Data.ID == "Player_Pyramid")
+            _destroyObjects.Action();
+
     }
 
 }

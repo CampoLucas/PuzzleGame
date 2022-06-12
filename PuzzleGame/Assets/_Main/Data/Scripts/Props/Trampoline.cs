@@ -38,7 +38,6 @@ public class Trampoline : Prop
         if (player)
         {
             player.SetIsInteracting(true);
-            Debug.Log("Player collide");
         }
     }
     

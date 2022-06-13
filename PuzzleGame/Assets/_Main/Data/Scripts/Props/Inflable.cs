@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inflable : MonoBehaviour
+public class Inflable : Prop
 {
     [SerializeField] private bool IsPressed = false;
     public bool prevState;
 
     private Animator _anim;
-       
+
     private void Awake()
     {
         _anim = GetComponent<Animator>();
-    } 
-    
+    }
+
     void Update()
-    {
+    { 
         _anim.SetBool("IsPressed", IsPressed);
 
         if (IsPressed && prevState != IsPressed)
@@ -27,16 +27,18 @@ public class Inflable : MonoBehaviour
     private void Inflate()
     {
         prevState = IsPressed;
+        _anim.SetTrigger("Inflate");
     }
 
     private void Deflate()
     {
         prevState = IsPressed;
+        _anim.ResetTrigger("Inflate");
     }
 
     public void Setinflate(bool isOpen) => IsPressed = isOpen;
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
         Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
 
@@ -44,20 +46,20 @@ public class Inflable : MonoBehaviour
         {
             if (player.Data.ID == "PSR" && IsPressed)
             {
-                _anim.SetBool("IsSphereOn", true);
+                _anim.SetTrigger("Pressed");
             }
             else
             {
-                _anim.SetBool("IsSphereOn", false);
+                _anim.ResetTrigger("Pressed");
             }
 
             if (player.Data.ID == "PCB" && other.gameObject.CompareTag("Player"))
             {
-                _anim.SetBool("IsCubeOn", true);
+                _anim.SetTrigger("Pressed");
             }
             else
             {
-                _anim.SetBool("IsCubeOn", false);
+                _anim.ResetTrigger("Pressed");
             }
 
                        

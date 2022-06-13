@@ -20,6 +20,7 @@ public class StatsSO : ScriptableObject
     public float MovementForce => _stats.movementForce; 
     public float JumpForce => _stats.jumpForce;
     public float MaxSpeed => _stats.maxSpeed;
+    public float RotationSpeed => _stats.rotationSpeed;
 
 
     public float Mass => _rigidbody.mass;
@@ -37,6 +38,7 @@ public struct StatValues
     public float movementForce;
     public float jumpForce;
     public float maxSpeed;
+    [Range(0.01f, 1)]public float rotationSpeed;
 }
 [System.Serializable]
 public struct RigidBodyValues

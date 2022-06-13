@@ -80,11 +80,14 @@ public class Fan : Prop
                 else if (obj.Data.Type == ObjType.heavy)
                     _currentForce = 0;
                 else
-                    _currentForce = _force;
+                    _currentForce = _force * 2;
                 
                 other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
             }
-            
+            Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
+            if (player)
+                player.SetIsInteracting(true);
+
         }
     }
     

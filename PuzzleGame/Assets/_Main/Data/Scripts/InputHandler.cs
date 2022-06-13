@@ -29,7 +29,7 @@ public class InputHandler : MonoBehaviour
     {
 
         HandleInput();
-        _player.Move(new Vector3(horizontal, vertical));
+        //_player.Move(new Vector3(horizontal, vertical));
         if (jump_Input) _player.Jump();
         if (grab_Input) _player.GrabObject();
         //if (swap_Input) _player.SwapPlayer();
@@ -42,7 +42,7 @@ public class InputHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        _player.Move(new Vector3(horizontal, vertical));
     }
 
     private void LateUpdate()

@@ -12,7 +12,7 @@ public class Movable : MonoBehaviour, IMovable
 
     [SerializeField] Transform cameraObject;
 
-    public float rotationSpeed = 25;
+    //[Range(0.01f,1)][SerializeField]public float rotationSpeed = 0.1f;
 
     
     private void Awake()
@@ -85,7 +85,7 @@ public class Movable : MonoBehaviour, IMovable
             targetDirection = transform.forward;
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, _player.Data.RotationSpeed);
 
         transform.rotation = playerRotation;
 

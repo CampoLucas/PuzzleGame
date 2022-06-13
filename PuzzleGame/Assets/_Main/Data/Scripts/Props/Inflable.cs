@@ -46,29 +46,29 @@ public class Inflable : Prop
 
         if (player)
         {
-            if (player.Data.ID == "PSR")
+            if (player.Data.ID == "Player_Sphere")
             {
-                _anim.SetTrigger("Sphere");
-                
+                _anim.SetTrigger("Player_Sphere");
+                _anim.SetBool("On", true);
             }
             else
             {
-                _anim.ResetTrigger("Sphere");
-                _anim.SetBool("On", true);
+                _anim.ResetTrigger("Player_Sphere");
+                _anim.SetBool("On", false);
             }
 
-            if (player.Data.ID == "PCB")
+            if (player.Data.ID == "Player_Cube")
             {
-                _anim.SetTrigger("Pressed");
+                _anim.SetTrigger("Player_Cube");
+                _anim.SetBool("On", true);
             }
             else
             {
-                _anim.ResetTrigger("Pressed");
-                _anim.SetBool("On", true);
-            }   
+                _anim.ResetTrigger("Player_Cube");
+                _anim.SetBool("On", false);
+            }
+            
         }
     }
-
-
-      
+        
 }

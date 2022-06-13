@@ -67,7 +67,7 @@ public class Swap : MonoBehaviour
         
     }
 
-    private void SlotOrder()
+    public void SlotOrder()
     {
         for (int i = 0; i < _formSlots.Length; i++)
         {
@@ -78,7 +78,7 @@ public class Swap : MonoBehaviour
         }
     }
 
-    private void DisableModels()
+    public void DisableModels()
     {
         for (int i = 0; i < _formGameObjects.Length; i++)
         {
@@ -91,72 +91,12 @@ public class Swap : MonoBehaviour
         
     }
 
-    private void ChangeValues()
+    public void ChangeValues()
     {
-        //_hand.position = _currentForm.HandPosition;
-        //_rayPos.position = _currentForm.RayPosition;
-        
         _hand.position = _currentForm.HandPosition + transform.position;
         _rayPos.position = _currentForm.RayPosition + transform.position;
 
         _rigidbody.mass = _currentForm.Mass;
         _rigidbody.drag = _currentForm.Drag;
-    }
-    
-    public void ChangeFormRight()
-    {
-        // currentFormIndex = currentFormIndex + 1;
-        //
-        // if (currentFormIndex > formSlots.Length - 1)
-        //     currentFormIndex = -1;
-        //
-        // if (currentFormIndex == 0 && formSlots[0] != null)
-        //     form = formSlots[currentFormIndex];
-        // else if (currentFormIndex == 0 && formSlots[0] == null)
-        //     currentFormIndex = currentFormIndex + 1;
-        // else if (currentFormIndex == 1 && formSlots[1] != null)
-        //     form = formSlots[currentFormIndex];
-        // else if (currentFormIndex == 1 && formSlots[1] == null)
-        //     currentFormIndex = currentFormIndex + 1;
-        
-        _currentFormIndex = _currentFormIndex + 1;
-        
-        // if (currentFormIndex > formSlots.Length - 1)
-        //     currentFormIndex = 0;
-        //
-        // switch (currentFormIndex)
-        // {
-        //     case 0:
-        //         if (formSlots[0] != null)
-        //             form = formSlots[currentFormIndex];
-        //         else
-        //             currentFormIndex = currentFormIndex + 1;
-        //         return;
-        //     case 1:
-        //         if (formSlots[1] != null)
-        //             form = formSlots[currentFormIndex];
-        //         else
-        //             currentFormIndex = currentFormIndex + 1;
-        //         return;
-        //     case 2:
-        //         if (formSlots[2] != null)
-        //             form = formSlots[currentFormIndex];
-        //         else
-        //             currentFormIndex = currentFormIndex + 1;
-        //         return;
-        // }
-        
-        if (_currentFormIndex > _formSlots.Length - 1)
-            _currentFormIndex = 0;
-
-        for (int i = 0; i < _formSlots.Length; i++)
-        {
-            if (_formSlots[i] != null)
-                _currentForm = _formSlots[_currentFormIndex];
-            else
-                _currentFormIndex = _currentFormIndex + 1;
-        }
-        
-        onChangeForm?.Invoke();
     }
 }

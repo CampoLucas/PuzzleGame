@@ -11,6 +11,8 @@ public class Player : Entity
     
     private PlayerState _status;
     private GrabObjects _grabObjects;
+
+    private DestroyObjects _destroyObjects;
     
     private Swap _swap;
     
@@ -26,6 +28,7 @@ public class Player : Entity
         _jump = GetComponent<IJumpable>();
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
+        _destroyObjects = GetComponent<DestroyObjects>();
         
         
         _swap = GetComponent<Swap>();
@@ -36,6 +39,7 @@ public class Player : Entity
     {
         base.Start();
         _swap.onChangeForm.AddListener(UpdateStats);
+        //UpdateStats();
     }
 
     public void Move(Vector3 direction)
@@ -79,9 +83,20 @@ public class Player : Entity
     private void UpdateStats()
     {
         _stats = _swap.CurrentForm;
-        
-        if(_grabObjects)
+
+        //_swap.SlotOrder();
+        //_swap.DisableModels();
+        //_swap.ChangeValues();
+
+        if (_grabObjects)
             _grabObjects.UpdateBoxPos();
+    }
+
+    public void Action()
+    {
+        if (Data.ID == "Player_Pyramid")
+            _destroyObjects.Action();
+
     }
 
 }

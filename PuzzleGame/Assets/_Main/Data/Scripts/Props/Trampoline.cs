@@ -15,9 +15,9 @@ public class Trampoline : Prop
         
         if (player)
         {
-            if (player.Data.ID == "PSR")
+            if (player.Data.ID == "Player_Sphere")
                 _currentForce = force * 2.5f;
-            else if (player.Data.ID == "PPM")
+            else if (player.Data.ID == "Player_Pyramid")
                 _currentForce = force / 2;
             else
                 _currentForce = force;
@@ -38,7 +38,6 @@ public class Trampoline : Prop
         if (player)
         {
             player.SetIsInteracting(true);
-            Debug.Log("Player collide");
         }
     }
     

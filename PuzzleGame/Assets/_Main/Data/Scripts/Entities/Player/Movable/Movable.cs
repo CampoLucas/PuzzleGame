@@ -19,10 +19,20 @@ public class Movable : MonoBehaviour, IMovable
 
     public void Move(Vector3 direction)
     {
-        forceDirection.x += direction.x * _player.Data.MovementForce * Time.deltaTime;
-        forceDirection.z += direction.y * _player.Data.MovementForce * Time.deltaTime;
-        Debug.DrawRay(transform.position, transform.forward);
+        if (_player.IsGrounded)
+        {
+            forceDirection.x += direction.x * _player.Data.MovementForce * Time.deltaTime;
+            forceDirection.z += direction.y * _player.Data.MovementForce * Time.deltaTime;
+            
+        }
+        else
+        {
+            forceDirection.x += direction.x * (_player.Data.MovementForce / 3) * Time.deltaTime;
+            forceDirection.z += direction.y * (_player.Data.MovementForce / 3) * Time.deltaTime;
+        }
 
+        
+        
         _rigidbody.AddForce(forceDirection);
 
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ObjType;
 
 public class Fan : Prop
 {
@@ -54,21 +55,36 @@ public class Fan : Prop
         base.OnTriggerStay(other);
         if (_state)
         {
-            Player _player = other.GetComponent<Collider>().GetComponentInParent<Player>();
-            if (_player != null)
+            // Player _player = other.GetComponent<Collider>().GetComponentInParent<Player>();
+            // if (_player != null)
+            // {
+            //     if (_player.Data.ID == "Player_Pyramid")
+            //         _currentForce = _force * 2.5f;
+            //     else if (_player.Data.ID == "Player_Sphere")
+            //         _currentForce = _force;
+            //     else
+            //         _currentForce = 0f;
+            // }
+            // else
+            // {
+            //     _currentForce = _force;
+            // }
+            //     
+            // other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
+            
+            Entity obj = other.GetComponent<Collider>().GetComponentInParent<Entity>();
+            if (obj)
             {
-                if (_player.Data.ID == "PPM")
+                if (obj.Data.Type == ObjType.light)
                     _currentForce = _force * 2.5f;
-                else if (_player.Data.ID == "PSR")
-                    _currentForce = _force;
+                else if (obj.Data.Type == ObjType.heavy)
+                    _currentForce = 0;
                 else
-                    _currentForce = 0f;
+                    _currentForce = _force;
+                
+                other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
             }
-            else
-            {
-                _currentForce = _force;
-            }
-            other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
+            
         }
     }
     

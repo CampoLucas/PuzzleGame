@@ -49,11 +49,12 @@ public class Inflable : Prop
             if (player.Data.ID == "PSR")
             {
                 _anim.SetTrigger("Sphere");
-                _anim.SetBool("On", true);
+                
             }
             else
             {
                 _anim.ResetTrigger("Sphere");
+                _anim.SetBool("On", true);
             }
 
             if (player.Data.ID == "PCB")
@@ -64,13 +65,10 @@ public class Inflable : Prop
             {
                 _anim.ResetTrigger("Pressed");
                 _anim.SetBool("On", true);
-            }
-
-                       
-
+            }   
         }
-
-
     }
+
+
       
 }

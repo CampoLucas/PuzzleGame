@@ -28,12 +28,14 @@ public class Inflable : Prop
     {
         prevState = IsPressed;
         _anim.SetTrigger("Inflate");
+        _anim.ResetTrigger("Sphere");
     }
 
     private void Deflate()
     {
         prevState = IsPressed;
         _anim.ResetTrigger("Inflate");
+        _anim.ResetTrigger("Sphere");
     }
 
     public void Setinflate(bool isOpen) => IsPressed = isOpen;
@@ -44,22 +46,24 @@ public class Inflable : Prop
 
         if (player)
         {
-            if (player.Data.ID == "PSR" && IsPressed)
+            if (player.Data.ID == "PSR")
             {
-                _anim.SetTrigger("Pressed");
+                _anim.SetTrigger("Sphere");
+                _anim.SetBool("On", true);
             }
             else
             {
-                _anim.ResetTrigger("Pressed");
+                _anim.ResetTrigger("Sphere");
             }
 
-            if (player.Data.ID == "PCB" && other.gameObject.CompareTag("Player"))
+            if (player.Data.ID == "PCB")
             {
                 _anim.SetTrigger("Pressed");
             }
             else
             {
                 _anim.ResetTrigger("Pressed");
+                _anim.SetBool("On", true);
             }
 
                        

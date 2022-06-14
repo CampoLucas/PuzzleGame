@@ -65,14 +65,14 @@ public class Player : Entity
     {
         //_swapPrototype.ChangeNextForm();
         if(_swap)
-            _swap.ChangeRight();
+            _swap.ChangeForm(true);
     }
 
     public void SwapPrevius()
     {
         //_swapPrototype.ChangePreviusForm();
         if(_swap)
-            _swap.ChangeLeft();
+            _swap.ChangeForm(false);
     }
     public void SetIsInteracting(bool isInteracting)
     {
@@ -80,6 +80,7 @@ public class Player : Entity
             _status.SetIsInteracting(isInteracting);
     }
 
+    public StatsSO GetStats => _swap.GetCurrentStats;
     private void UpdateStats()
     {
         _stats = _swap.CurrentForm;
@@ -98,5 +99,6 @@ public class Player : Entity
             _destroyObjects.Action();
 
     }
+
 
 }

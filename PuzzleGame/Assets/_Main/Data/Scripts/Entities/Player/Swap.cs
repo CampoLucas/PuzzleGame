@@ -8,6 +8,7 @@ public class Swap : MonoBehaviour
 {
     public StatsSO CurrentForm => _currentForm;
     [SerializeField] private StatsSO _currentForm;
+    public StatsSO GetCurrentStats => _formSlots[_currentFormIndex];
     
     [Header("Forms Slots")]
     [SerializeField] private StatsSO[] _formSlots = new StatsSO[1];
@@ -35,36 +36,29 @@ public class Swap : MonoBehaviour
     {
         _currentForm = _formSlots[0];
         _currentGameObject = _formGameObjects[0];
+        SetValues();
     }
 
-    public void ChangeRight()
+    public void ChangeForm(bool right)
     {
-        _currentFormIndex = _currentFormIndex + 1;
+        _currentFormIndex = right ? _currentFormIndex + 1 : _currentFormIndex - 1;
         
-        if (_currentFormIndex > _formSlots.Length - 1)
+        if (right && _currentFormIndex > _formSlots.Length - 1)
             _currentFormIndex = 0;
 
-        SlotOrder();
-        DisableModels();
-        ChangeValues();
-        
-        onChangeForm?.Invoke();
-        
-    }
-    
-    public void ChangeLeft()
-    {
-        _currentFormIndex = _currentFormIndex - 1;
-        
-        if (_currentFormIndex < 0)
+        if (!right && _currentFormIndex < 0)
             _currentFormIndex = _formSlots.Length - 1;
 
+        SetValues();
+
+        onChangeForm?.Invoke();
+    }
+
+    public void SetValues()
+    {
         SlotOrder();
         DisableModels();
         ChangeValues();
-        
-        onChangeForm?.Invoke();
-        
     }
 
     public void SlotOrder()
@@ -99,4 +93,5 @@ public class Swap : MonoBehaviour
         _rigidbody.mass = _currentForm.Mass;
         _rigidbody.drag = _currentForm.Drag;
     }
+
 }

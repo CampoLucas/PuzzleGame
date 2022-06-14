@@ -34,7 +34,7 @@ public class Movable : MonoBehaviour, IMovable
             forceDirection = forceDirection + cameraObject.right * direction.x;
             forceDirection.Normalize();
             forceDirection.y = 0;
-            forceDirection = forceDirection * _player.Data.MovementForce;
+            forceDirection = forceDirection * _player.GetStats.MovementForce;
 
 
 
@@ -47,7 +47,7 @@ public class Movable : MonoBehaviour, IMovable
             forceDirection = forceDirection + cameraObject.right * direction.x;
             forceDirection.Normalize();
             forceDirection.y = 0;
-            forceDirection = forceDirection * _player.Data.MovementForce / 5;
+            forceDirection = forceDirection * _player.GetStats.MovementForce / 5;
 
         }
 

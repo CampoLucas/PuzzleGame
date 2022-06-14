@@ -16023,6 +16023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237683, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: _currentFormIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3002208007529237689, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_RootOrder
       value: 8

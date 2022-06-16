@@ -17,10 +17,7 @@ public class Swap : MonoBehaviour
     //public List<StatsSO> formList;
     
     [Header("Everything else")]
-    [SerializeField] private GameObject _currentGameObject;
     [SerializeField] private GameObject[] _formGameObjects;
-    [SerializeField] private Transform _hand;
-    [SerializeField] private Transform _rayPos;
     private Rigidbody _rigidbody;
 
     
@@ -34,8 +31,6 @@ public class Swap : MonoBehaviour
 
     private void Start()
     {
-        _currentForm = _formSlots[0];
-        _currentGameObject = _formGameObjects[0];
         SetValues();
     }
 

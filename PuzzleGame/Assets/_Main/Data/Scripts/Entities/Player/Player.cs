@@ -83,12 +83,6 @@ public class Player : Entity
     public StatsSO GetStats => _swap.GetCurrentStats;
     private void UpdateStats()
     {
-        _stats = _swap.CurrentForm;
-
-        //_swap.SlotOrder();
-        //_swap.DisableModels();
-        //_swap.ChangeValues();
-
         if (_grabObjects)
             _grabObjects.UpdateBoxPos();
     }

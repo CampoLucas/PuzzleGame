@@ -9,9 +9,7 @@ public class GrabObjects : MonoBehaviour
 
     private Player _player;
 
-    [SerializeField] private Transform _rayPoint;
     [SerializeField] private Transform _hand;
-    [SerializeField] private float _rayDistance;
     
     [SerializeField] private float _radius = 1f;
     [SerializeField] private float _offsetY;
@@ -28,30 +26,8 @@ public class GrabObjects : MonoBehaviour
         _player.OnRespawn.AddListener(DropObj);
     }
 
-    private void Update()
-    {
-        
-        Debug.DrawRay(_rayPoint.position, transform.forward * _rayDistance, Color.red);
-    }
-
-    // public void GrabObject()
-    // {
-    //     if (Physics.Raycast(_rayPoint.position, transform.forward, out RaycastHit hit, _rayDistance, _layerIndex))
-    //     {
-    //         if (_grabbedObject == null)
-    //         {
-    //             _grabbedObject = hit.collider.gameObject.transform.parent.gameObject;
-    //             GrabObj();
-    //         }
-    //         else if (_grabbedObject != null)
-    //         {
-    //             DropObj();
-    //         }
-    //
-    //     }
-    //
-    // }
     
+
     public void GrabObject()
     {
         Collider[] hitColliders =
@@ -63,12 +39,12 @@ public class GrabObjects : MonoBehaviour
             Entity obj = other.GetComponent<Collider>().GetComponentInParent<Entity>();
             if (obj)
             {
-                if (_grabbedObject == null)
+                if (!_grabbedObject)
                 {
                     _grabbedObject = obj.gameObject;
                     GrabObj();
                 }
-                else if (_grabbedObject != null)
+                else if (_grabbedObject)
                 {
                     DropObj();
                 }
@@ -83,6 +59,7 @@ public class GrabObjects : MonoBehaviour
         Destroy(_grabbedObject.GetComponent<Rigidbody>()); // .isKinematic = true;
         //_grabbedObject.GetComponent<Rigidbody>().useGravity = false;
         _grabbedObject.transform.position = _hand.position;
+        _grabbedObject.transform.rotation = transform.rotation;
         _grabbedObject.transform.SetParent(transform);
     }
 
@@ -100,6 +77,7 @@ public class GrabObjects : MonoBehaviour
 
     public void UpdateBoxPos()
     {
+        //_hand.transform.position = transform.position + _player.GetStats.HandPosition;
         if (_grabbedObject)
             _grabbedObject.transform.position = _hand.transform.position;
     }

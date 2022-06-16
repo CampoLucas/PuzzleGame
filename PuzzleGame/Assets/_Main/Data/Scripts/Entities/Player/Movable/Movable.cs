@@ -29,6 +29,7 @@ public class Movable : MonoBehaviour, IMovable
         else
             currentForce = _player.GetStats.MovementForce;
         
+        
         _forceDirection = _camera.forward * direction.y;
         _forceDirection += _camera.right * direction.x;
         _forceDirection.Normalize();
@@ -42,12 +43,12 @@ public class Movable : MonoBehaviour, IMovable
         _forceDirection = Vector3.zero;
         //Creo que esto deveria ir en otro script
         if (_rigidbody.velocity.y < 0f && !_player.IsInteracting)
-            _rigidbody.velocity -= Vector3.down * (Physics.gravity.y * Time.deltaTime);
+            _rigidbody.velocity -= Vector3.down * (Physics.gravity.y * Time.fixedDeltaTime);
 
-        Vector3 horizontalVelocity = _rigidbody.velocity;
-        horizontalVelocity.y = 0;
-        if (horizontalVelocity.sqrMagnitude > _player.GetStats.MaxSpeed * _player.GetStats.MaxSpeed)
-            _rigidbody.velocity = horizontalVelocity.normalized * _player.GetStats.MaxSpeed + Vector3.up * (_rigidbody.velocity.y * Time.deltaTime);
+        // Vector3 horizontalVelocity = _rigidbody.velocity;
+        // horizontalVelocity.y = 0;
+        // if (horizontalVelocity.sqrMagnitude > _player.GetStats.MaxSpeed * _player.GetStats.MaxSpeed)
+        //     _rigidbody.velocity = horizontalVelocity.normalized * _player.GetStats.MaxSpeed + Vector3.up * (_rigidbody.velocity.y * Time.fixedDeltaTime);
 
         HandleRotation(direction);
     }

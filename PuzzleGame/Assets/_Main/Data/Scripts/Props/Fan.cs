@@ -48,17 +48,20 @@ public class Fan : Prop
         }
         
         if(_windParticles)
-        _windParticles.enableEmission = true;
+            _windParticles.Play();
     }
 
     private void TurnOff()
     {
         prevState = _state;
-        turnOffSound.pitch = Random.Range(1.1f, 1.2f);
-        turnOffSound?.Play();
+        if (turnOffSound)
+        {
+            turnOffSound.pitch = Random.Range(1.1f, 1.2f);
+            turnOffSound.Play();
+        }
         
         if(_windParticles)
-            _windParticles.enableEmission = false;
+            _windParticles.Stop();
     }
 
     public void SetState(bool isOn) => _state = isOn;

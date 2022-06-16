@@ -18,6 +18,12 @@ public class Jumpable : MonoBehaviour, IJumpable
     }
     private void FixedUpdate()
     {
+        // float currentMaxSpeed;
+        // if(_player.IsGrounded)
+        //     currentMaxSpeed = _player.GetStats.MaxSpeed;
+        // else
+        //     currentMaxSpeed = _player.GetStats.MaxSpeed * 3;
+        
         _rigidbody.AddForce(_forceDirection, ForceMode.Impulse);
         _forceDirection = Vector3.zero;
 

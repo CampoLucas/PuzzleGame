@@ -34,7 +34,7 @@ public class Movable : MonoBehaviour, IMovable
         _forceDirection += _camera.right * direction.x;
         _forceDirection.Normalize();
         _forceDirection.y = 0;
-        _forceDirection *= currentForce * Time.fixedDeltaTime;//Sin Time.fixedDeltaTime Cubo 70, esfera 25 y piramide 10
+        _forceDirection *= currentForce;
 
         //Por que?
         //forceDirection.y += -10;
@@ -45,10 +45,11 @@ public class Movable : MonoBehaviour, IMovable
         if (_rigidbody.velocity.y < 0f && !_player.IsInteracting)
             _rigidbody.velocity -= Vector3.down * (Physics.gravity.y * Time.fixedDeltaTime);
 
+        //Encontre el problema de planear... era que estaba siendo multiplicado por Time.deltatime, igual la comento porque en jumpable hace lo mismo
         // Vector3 horizontalVelocity = _rigidbody.velocity;
         // horizontalVelocity.y = 0;
         // if (horizontalVelocity.sqrMagnitude > _player.GetStats.MaxSpeed * _player.GetStats.MaxSpeed)
-        //     _rigidbody.velocity = horizontalVelocity.normalized * _player.GetStats.MaxSpeed + Vector3.up * (_rigidbody.velocity.y * Time.fixedDeltaTime);
+        //     _rigidbody.velocity = horizontalVelocity.normalized * _player.GetStats.MaxSpeed + Vector3.up * _rigidbody.velocity.y;
 
         HandleRotation(direction);
     }

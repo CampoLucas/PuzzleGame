@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static ObjType;
+using Random = UnityEngine.Random;
 
 public class Fan : Prop
 {
@@ -22,6 +24,18 @@ public class Fan : Prop
     {
         _anim = GetComponent<Animator>();
         _windParticles = GetComponentInChildren<ParticleSystem>();
+    }
+
+    private void Start()
+    {
+        if (_windParticles)
+        {
+            if(_state)
+                _windParticles.Play();
+            else
+                _windParticles.Stop();
+        }
+            
     }
 
     // Update is called once per frame
@@ -95,7 +109,7 @@ public class Fan : Prop
                 else if (obj.Data.Type == ObjType.heavy)
                     _currentForce = 0;
                 else
-                    _currentForce = _force * 2;
+                    _currentForce = _force;
                 
                 other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
             }

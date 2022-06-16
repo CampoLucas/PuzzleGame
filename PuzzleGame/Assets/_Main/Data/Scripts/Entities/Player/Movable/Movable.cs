@@ -34,7 +34,7 @@ public class Movable : MonoBehaviour, IMovable
         _forceDirection += _camera.right * direction.x;
         _forceDirection.Normalize();
         _forceDirection.y = 0;
-        _forceDirection *= currentForce;
+        _forceDirection *= currentForce * Time.fixedDeltaTime;//Sin Time.fixedDeltaTime Cubo 70, esfera 25 y piramide 10
 
         //Por que?
         //forceDirection.y += -10;

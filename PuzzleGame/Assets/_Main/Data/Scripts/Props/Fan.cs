@@ -6,6 +6,7 @@ using static ObjType;
 public class Fan : Prop
 {
     private Animator _anim;
+    private ParticleSystem _windParticles;
     
     [SerializeField] private bool _state;
     private bool prevState;
@@ -20,6 +21,7 @@ public class Fan : Prop
     private void Awake()
     {
         _anim = GetComponent<Animator>();
+        _windParticles = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -38,8 +40,15 @@ public class Fan : Prop
     private void TurnOn()
     {
         prevState = _state;
-        turnOnSound.pitch = 1;
-        turnOnSound?.Play();
+
+        if (turnOnSound)
+        {
+            turnOnSound.pitch = 1;
+            turnOnSound.Play();
+        }
+        
+        if(_windParticles)
+        _windParticles.enableEmission = true;
     }
 
     private void TurnOff()
@@ -47,6 +56,9 @@ public class Fan : Prop
         prevState = _state;
         turnOffSound.pitch = Random.Range(1.1f, 1.2f);
         turnOffSound?.Play();
+        
+        if(_windParticles)
+            _windParticles.enableEmission = false;
     }
 
     public void SetState(bool isOn) => _state = isOn;

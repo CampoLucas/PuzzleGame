@@ -63,14 +63,12 @@ public class Player : Entity
 
     public void SwapNext()
     {
-        //_swapPrototype.ChangeNextForm();
         if(_swap)
             _swap.ChangeForm(true);
     }
 
     public void SwapPrevius()
     {
-        //_swapPrototype.ChangePreviusForm();
         if(_swap)
             _swap.ChangeForm(false);
     }
@@ -83,6 +81,7 @@ public class Player : Entity
     public StatsSO GetStats => _swap.GetCurrentStats;
     private void UpdateStats()
     {
+        _stats = GetStats;
         if (_grabObjects)
             _grabObjects.UpdateBoxPos();
     }

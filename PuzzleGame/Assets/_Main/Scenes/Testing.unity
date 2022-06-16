@@ -16343,6 +16343,10 @@ PrefabInstance:
       value: Fan, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}

@@ -18,7 +18,7 @@ MonoBehaviour:
   _rayPosition: {x: 0, y: 0.25, z: 0.258}
   _stats:
     movementForce: 35
-    jumpForce: 13
+    jumpForce: 8
     maxSpeed: 5
     rotationSpeed: 0.178
   _rigidbody:

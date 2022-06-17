@@ -17,6 +17,8 @@ public class Player : Entity
     private Swap _swap;
 
     private ParticleTransition _particle;
+
+    private PlayerAnimation _anim;
     
     public bool IsGrounded => _status.IsGrounded;
     public bool IsInteracting => _status.IsInteracting;
@@ -32,6 +34,7 @@ public class Player : Entity
         _grabObjects = GetComponentInChildren<GrabObjects>();
         _destroyObjects = GetComponent<DestroyObjects>();
         _particle = GetComponent<ParticleTransition>();
+        _anim = GetComponent<PlayerAnimation>();
         
         
         _swap = GetComponent<Swap>();
@@ -50,6 +53,15 @@ public class Player : Entity
         }
 
         //UpdateStats();
+    }
+
+    public void UpdateAnimationValues(float horizontal, float vertical)
+    {
+        if(_anim)
+            _anim.UpdateAnimatorValues(horizontal, vertical);
+        
+        // _anim.SetFloat("Horizontal", horizontal, 0.1f, Time.deltaTime);
+        // _anim.SetFloat("Vertical", vertical, 0.1f, Time.deltaTime);
     }
 
     public void Move(Vector3 direction)

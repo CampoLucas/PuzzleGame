@@ -9,14 +9,15 @@ public class InputHandler : MonoBehaviour
     private Player _player;
 
     [Header("Movement")]
-    public float horizontal;
-    public float vertical;
+    private float _horizontal;
+    private float _vertical;
+    private float _moveAmount;
 
-    bool jump_Input;
-    bool grab_Input;
-    bool swapRight_Input;
-    bool swapLeft_Input;
-    private bool action_Input;
+    private bool _jumpInput;
+    private bool _grabInput;
+    private bool _swapRightInput;
+    private bool _swapLeftInput;
+    private bool _actionInput;
 
     private Vector2 _movementInput;
 
@@ -29,32 +30,34 @@ public class InputHandler : MonoBehaviour
     {
 
         HandleInput();
+        
         //_player.Move(new Vector3(horizontal, vertical));
-        if (jump_Input) _player.Jump();
-        if (grab_Input) _player.GrabObject();
+        if (_jumpInput) _player.Jump();
+        if (_grabInput) _player.GrabObject();
         //if (swap_Input) _player.SwapPlayer();
         
-        if (swapLeft_Input) _player.SwapPrevius();
-        else if (swapRight_Input)  _player.SwapNext();
+        if (_swapLeftInput) _player.SwapPrevius();
+        else if (_swapRightInput)  _player.SwapNext();
         
-        if(action_Input) _player.Action();
+        if(_actionInput) _player.Action();
+        _player.UpdateAnimationValues(_horizontal, _vertical);
     }
 
     private void FixedUpdate()
     {
-        _player.Move(new Vector3(horizontal, vertical));
+        _player.Move(new Vector3(_horizontal, _vertical));
     }
 
     private void LateUpdate()
     {
 
-        jump_Input = false;
-        grab_Input = false;
+        _jumpInput = false;
+        _grabInput = false;
 
-        swapLeft_Input = false;
-        swapRight_Input = false;
+        _swapLeftInput = false;
+        _swapRightInput = false;
 
-        action_Input = false;
+        _actionInput = false;
 
     }
 
@@ -65,11 +68,11 @@ public class InputHandler : MonoBehaviour
             _inputActions = new PlayerControls();
             _inputActions.PlayerMovements.Movement.performed += inputActions => _movementInput = inputActions.ReadValue<Vector2>();
 
-            _inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
-            _inputActions.PlayerActions.Grab.performed += i => grab_Input = true;
-            _inputActions.PlayerActions.SwapL.performed += i => swapLeft_Input = true;
-            _inputActions.PlayerActions.SwapR.performed += i => swapRight_Input = true;
-            _inputActions.PlayerActions.Action.performed += i => action_Input = true;
+            _inputActions.PlayerActions.Jump.performed += i => _jumpInput = true;
+            _inputActions.PlayerActions.Grab.performed += i => _grabInput = true;
+            _inputActions.PlayerActions.SwapL.performed += i => _swapLeftInput = true;
+            _inputActions.PlayerActions.SwapR.performed += i => _swapRightInput = true;
+            _inputActions.PlayerActions.Action.performed += i => _actionInput = true;
         }
         _inputActions.Enable();
     }
@@ -84,8 +87,10 @@ public class InputHandler : MonoBehaviour
     }
     private void MoveInput()
     {
-        horizontal = _movementInput.x;
-        vertical = _movementInput.y;
+        _horizontal = _movementInput.x;
+        _vertical = _movementInput.y;
+        
+        _moveAmount = Mathf.Clamp01(Mathf.Abs(_horizontal) + Mathf.Abs(_vertical));
     }
 
     //private void JumpInput() => _inputActions.PlayerActions.Jump.performed += i => jump_Input = true;

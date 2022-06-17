@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2220,14 +2220,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 199565090, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
-      propertyPath: spawnPos
-      value: 
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3002208007119053431, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: ColorModule.gradient.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: ColorModule.gradient.minGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: ColorModule.gradient.minGradient.key0.g
+      value: 0.9633107
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054609459994521858, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: ColorModule.gradient.minGradient.key0.r
+      value: 0.48584908
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117009456854164638, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9476129e92915b340b91b50fef39d2c2, type: 2}
     - target: {fileID: 3002208007529237682, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2275,10 +2327,6 @@ PrefabInstance:
     - target: {fileID: 3002208007529237689, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3002208008406726353, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1319350e076eb4647a420f7462646e1c, type: 3}

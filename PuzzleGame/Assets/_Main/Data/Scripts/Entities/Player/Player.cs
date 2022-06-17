@@ -15,6 +15,8 @@ public class Player : Entity
     private DestroyObjects _destroyObjects;
     
     private Swap _swap;
+
+    private ParticleTransition _particle;
     
     public bool IsGrounded => _status.IsGrounded;
     public bool IsInteracting => _status.IsInteracting;
@@ -29,6 +31,7 @@ public class Player : Entity
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
         _destroyObjects = GetComponent<DestroyObjects>();
+        _particle = GetComponent<ParticleTransition>();
         
         
         _swap = GetComponent<Swap>();
@@ -38,7 +41,14 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
-        _swap.onChangeForm.AddListener(UpdateStats);
+        
+        _swap.OnAfterChangeForm.AddListener(UpdateStats);
+        if (_particle)
+        {
+            _swap.OnBeforeChangeForm.AddListener(_particle.PlayEffect);
+            _particle.StopEffect();
+        }
+
         //UpdateStats();
     }
 

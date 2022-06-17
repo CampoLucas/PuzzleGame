@@ -23,4 +23,4 @@ MonoBehaviour:
     rotationSpeed: 0.1
   _rigidbody:
     mass: 2
-    drag: 0.5
+    drag: 0.1

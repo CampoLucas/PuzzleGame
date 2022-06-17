@@ -17,6 +17,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/CliffDrop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/Box/Box.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/Player/DestroyObjects.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/Player/ParticleTransition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/StatsSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Button/SquereButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Fan.cs" root0="FORCE_HIGHLIGHTING" />
@@ -103,7 +104,8 @@
       <workItem from="1654442032278" duration="5262000" />
       <workItem from="1654460416817" duration="1206000" />
       <workItem from="1655032463422" duration="8960000" />
-      <workItem from="1655379416468" duration="8654000" />
+      <workItem from="1655379416468" duration="9156000" />
+      <workItem from="1655476119682" duration="1361000" />
     </task>
     <servers />
   </component>

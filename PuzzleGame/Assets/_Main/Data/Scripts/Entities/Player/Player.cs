@@ -72,8 +72,12 @@ public class Player : Entity
 
     public void Jump()
     {
-        if(_jump != null)
+        if (_jump != null)
+        {
+            if(_anim)
+                _anim.ToggleJump();
             _jump.Jump();
+        }
     }
 
     public void GrabObject()

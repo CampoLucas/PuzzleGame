@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CircleButton_UnlitToon_MATERIAL
+  m_Name: CircleButton_Base_MATERIAL
   m_Shader: {fileID: 4800000, guid: 05d69e8d954a4ef468e48a788e47c274, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,16 +20,16 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b10655c9a188f6848bf333a5e8ceebc7, type: 3}
+        m_Texture: {fileID: 2800000, guid: b29bb112047bd05419b4a3418841ed7b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 0.405
-    - _Detail: 0.329
+    - _Brightness: 0.645
+    - _Detail: 0.429
     - _Glossiness: 0.5
     - _Metallic: 0
-    - _Strenght: 0.379
+    - _Strenght: 0.639
     m_Colors:
-    - _Color: {r: 1, g: 0.52119267, b: 0, a: 1}
-    - _LightColor: {r: 1.2264152, g: 0.75783205, b: 0.75783205, a: 1}
+    - _Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

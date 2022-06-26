@@ -14,6 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Audio/Sound.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/CliffDrop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/Box/Box.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/Player/DestroyObjects.cs" root0="FORCE_HIGHLIGHTING" />
@@ -108,6 +109,8 @@
       <workItem from="1655476119682" duration="1952000" />
       <workItem from="1655499288336" duration="4735000" />
       <workItem from="1655766066105" duration="1424000" />
+      <workItem from="1656266603000" duration="2893000" />
+      <workItem from="1656269998104" duration="22000" />
     </task>
     <servers />
   </component>

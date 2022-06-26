@@ -12,8 +12,6 @@ public class Door : MonoBehaviour
 
     [SerializeField] private string nextLevel;
 
-    public AudioSource openedSound;
-    public AudioSource closedSound;
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -34,15 +32,14 @@ public class Door : MonoBehaviour
     private void OpenDoor()
     {
         prevState = isOpened;
-        openedSound.pitch = 1;
-        openedSound?.Play();
+        AudioManager.instance.Play("DoorOn");
     }
 
     private void CloseDoor()
     {
         prevState = isOpened;
-        closedSound.pitch = Random.Range(1.1f, 1.2f);
-        closedSound?.Play();
+        //FindObjectOfType<AudioManager>().Play("DoorOff");
+        AudioManager.instance.Play("DoorOff");
     }
 
     public void SetDoor(bool isOpen) => isOpened = isOpen;

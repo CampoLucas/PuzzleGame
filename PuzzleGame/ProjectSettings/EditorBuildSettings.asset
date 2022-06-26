@@ -9,42 +9,42 @@ EditorBuildSettings:
     path: Assets/_Main/Scenes/MainMenu.unity
     guid: f8b76dd06de75a2409e1408d2ff0cf6b
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Cube/Cube-lvl-0.unity
+    path: Assets/_Main/Scenes/Lvl-0.unity
     guid: 1f68ed80cd3e9c64d953e1617075ea7a
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Cube/Cube-lvl-1.unity
+    path: Assets/_Main/Scenes/Lvl-1.unity
     guid: fe29fcc32031d6c43866941cae9ecd5a
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Cube/Cube-lvl-2.unity
+    path: Assets/_Main/Scenes/Lvl-2.unity
     guid: d201a7ea99106dc48a45127f010bc654
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Cube/Cube-lvl-3.unity
+    path: Assets/_Main/Scenes/Lvl-3.unity
     guid: f479cd17c7017fb47bd2612b2f55e430
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Sphere/Ball-lvl-4.unity
+    path: Assets/_Main/Scenes/Lvl-4.unity
     guid: 61563a9fe30c35b4fa414be43847e190
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Sphere/Ball-lvl-5.unity
+    path: Assets/_Main/Scenes/Lvl-5.unity
     guid: e306ab184a7e3c048875d856767b4c81
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Sphere/Ball-lvl-6.unity
+    path: Assets/_Main/Scenes/Lvl-6.unity
     guid: a420c90e8f7ce00438063cf73790eb8e
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Tryangle/Tryangle-lvl-7.unity
+    path: Assets/_Main/Scenes/Lvl-7.unity
     guid: a90491d13711bb743a388642a4bc1ff6
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Tryangle/Tryangle-lvl-8.unity
+    path: Assets/_Main/Scenes/Lvl-8.unity
     guid: 4cbda9af1ec4a6944acb06d5c0aa8c29
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Tutorial/Tryangle/Tryangle-lvl-9.unity
+    path: Assets/_Main/Scenes/Lvl-9.unity
     guid: d8bd6ac6040ad3f448653555bb4d5b4f
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Main-Levels/Swap-lvl-10.unity
+    path: Assets/_Main/Scenes/Lvl-10.unity
     guid: f58904ceccdb73049a5010dd4c89dee4
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Main-Levels/Swap-lvl-11.unity
+    path: Assets/_Main/Scenes/Lvl-11.unity
     guid: ffa0c41024693c54a91c187c157d2604
   - enabled: 1
-    path: Assets/_Main/Scenes/HistoryLevels/Updated/Main-Levels/Swap-lvl-12.unity
+    path: Assets/_Main/Scenes/lvl-12.unity
     guid: 58588b82dbe26b2449373e4d97c1b1d9
   m_configObjects: {}

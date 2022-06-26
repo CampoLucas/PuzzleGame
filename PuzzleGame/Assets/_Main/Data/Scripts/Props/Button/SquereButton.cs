@@ -26,6 +26,6 @@ public class SquereButton : Button
     {
         Entity obj = other.GetComponent<Collider>().GetComponentInParent<Entity>();
         if(obj.Data.ID == "Player_Cube")
-            isPressed = false;
+            isPressed = true;
     }
 }

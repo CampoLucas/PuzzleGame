@@ -13,8 +13,6 @@ public class Button : MonoBehaviour
     public bool isPressed;
     public bool prevPressedState;
     
-    public AudioSource pressedSound;
-    public AudioSource releasedSound;
     public UnityEvent onPressed;
     public UnityEvent onReleased;
 
@@ -37,16 +35,14 @@ public class Button : MonoBehaviour
     private void Pressed()
     {
         prevPressedState = isPressed;
-        pressedSound.pitch = 1;
-        pressedSound.Play();
+        AudioManager.instance.Play("ButtonOn");
         onPressed.Invoke();
     }
 
     private void Released()
     {
         prevPressedState = isPressed;
-        releasedSound.pitch = Random.Range(1.1f, 1.2f);
-        releasedSound.Play();
+        AudioManager.instance.Play("ButtonOff");
         onReleased.Invoke();
     }
 

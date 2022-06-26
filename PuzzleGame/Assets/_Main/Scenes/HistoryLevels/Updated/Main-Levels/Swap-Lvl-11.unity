@@ -57341,7 +57341,7 @@ GameObject:
   - component: {fileID: 1943308655}
   - component: {fileID: 1943308654}
   m_Layer: 5
-  m_Name: Text Nivel 8
+  m_Name: Text Nivel 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57369,7 +57369,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943308652}
-  m_Text: Nivel 8
+  m_Text: Nivel 11
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1

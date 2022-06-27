@@ -11,6 +11,7 @@ public class Movable : MonoBehaviour, IMovable
 
     private Vector3 _forceDirection = Vector3.zero;
 
+
     [SerializeField] private Transform _camera;
 
     
@@ -23,6 +24,12 @@ public class Movable : MonoBehaviour, IMovable
 
     public void Move(Vector3 direction)
     {
+    Vector3 _rayCastOrigin = transform.position;
+    Vector3 targetPosition;
+    RaycastHit hit;
+    targetPosition = transform.position;
+
+
         float currentForce;
         if (!_player.IsGrounded)
             currentForce = _player.GetStats.MovementForce / 3;
@@ -52,6 +59,26 @@ public class Movable : MonoBehaviour, IMovable
         //     _rigidbody.velocity = horizontalVelocity.normalized * _player.GetStats.MaxSpeed + Vector3.up * _rigidbody.velocity.y;
 
         HandleRotation(direction);
+
+        if (Physics.SphereCast(_rayCastOrigin, 0.2f, -Vector3.up, out hit ))
+        {
+            if (_player.IsGrounded)
+            {
+                Vector3 rayCastHitPoint = hit.point;
+                targetPosition.y = rayCastHitPoint.y;
+            }
+        }
+
+        if (_player.IsGrounded)
+        {
+           if( _player.IsInteracting )
+            {
+                transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime / 0.1f);
+            }else
+            {
+                transform.position = targetPosition;
+            }
+        }
     }
 
     private void HandleRotation (Vector3 direction)

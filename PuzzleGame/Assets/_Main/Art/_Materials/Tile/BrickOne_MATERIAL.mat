@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SecurityOne_MATERIAL
+  m_Name: BrickOne_MATERIAL
   m_Shader: {fileID: 4800000, guid: 048b0a1feddd32649912efd40191e2ea, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,18 +20,18 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1f60b1ca11fa0ef418f656f234cf1ed6, type: 3}
+        m_Texture: {fileID: 2800000, guid: fe51f95963b139f449e7edf0622d757e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 2800000, guid: 9b7051f5429e4ba4386524222b46051a, type: 3}
+        m_Texture: {fileID: 2800000, guid: e1961936476fa944785695524c84149a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughTex:
-        m_Texture: {fileID: 2800000, guid: 32153cdefb244f542b491319672c1e72, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - _Color: {r: 1, g: 0.7756487, b: 0, a: 1}
+    - _Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   m_BuildTextureStacks: []

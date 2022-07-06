@@ -44,7 +44,7 @@ Shader "PuzzleSwap/TileShader"
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             fixed3 s = tex2D(_RoughTex, IN.uv_RoughTex).rgb;
-            o.Smoothness = normalize(s);
+            o.Smoothness = s;
             fixed3 n = UnpackNormal(tex2D(_NormalTex, IN.uv_NormalTex)).rgb;
             o.Normal = normalize(n);
             o.Albedo = c.rgb;

@@ -1727,6 +1727,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1090049757231916120, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.603
+      objectReference: {fileID: 0}
     - target: {fileID: 2327950371630200299, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1759,6 +1763,10 @@ PrefabInstance:
       propertyPath: _formGameObjects.Array.data[1]
       value: 
       objectReference: {fileID: 92443272}
+    - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: stepHeight
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3002208007529237686, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_Drag
       value: 0.5
@@ -1818,6 +1826,14 @@ PrefabInstance:
     - target: {fileID: 3002208008406726358, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143279647622740662, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143279647622740662, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.603
       objectReference: {fileID: 0}
     - target: {fileID: 7768195383218394647, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_IsActive

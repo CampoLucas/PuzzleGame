@@ -23,11 +23,13 @@ Shader "PuzzleSwap/TileShader"
         sampler2D _NormalTex;
         sampler2D _RoughTex;
 
+
         struct Input
         {
             float2 uv_MainTex;
             float2 uv_NormalTex;
             float2 uv_RoughTex;
+
         };
 
         fixed4 _Color;
@@ -42,13 +44,16 @@ Shader "PuzzleSwap/TileShader"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
+            
+
+            
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             fixed3 s = tex2D(_RoughTex, IN.uv_RoughTex).rgb;
             o.Smoothness = s;
             fixed3 n = UnpackNormal(tex2D(_NormalTex, IN.uv_NormalTex)).rgb;
             o.Normal = normalize(n);
             o.Albedo = c.rgb;
-            o.Alpha = c.a;
+            o.Alpha = c.a ;
         }
         ENDCG
     }

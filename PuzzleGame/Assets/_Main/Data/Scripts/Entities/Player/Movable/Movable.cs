@@ -13,12 +13,23 @@ public class Movable : MonoBehaviour, IMovable
 
     [SerializeField] private Transform _camera;
 
-    
+    [SerializeField] GameObject stepRayUpper;
+    [SerializeField] GameObject stepRayLower;
+    [SerializeField] float stepHeight = 0.3f;
+    [SerializeField] float stepSmooth = 10f;
+
+
     private void Awake()
     {
         _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
         if (Camera.main != null) _camera = Camera.main.transform;
+
+        stepRayUpper.transform.position = new Vector3(stepRayLower.transform.position.x, stepHeight, stepRayLower.transform.position.z);
+    }
+
+    private void Update()
+    {
     }
 
     public void Move(Vector3 direction)
@@ -52,6 +63,9 @@ public class Movable : MonoBehaviour, IMovable
         //     _rigidbody.velocity = horizontalVelocity.normalized * _player.GetStats.MaxSpeed + Vector3.up * _rigidbody.velocity.y;
 
         HandleRotation(direction);
+
+        if (_player.IsGrounded)
+             stepClimb();
     }
 
     private void HandleRotation (Vector3 direction)
@@ -70,6 +84,57 @@ public class Movable : MonoBehaviour, IMovable
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, _player.GetStats.RotationSpeed);
 
         transform.rotation = playerRotation;
+
+        stepRayLower.transform.rotation = transform.rotation;
+        stepRayUpper.transform.rotation = transform.rotation;
+
+    }
+
+    void stepClimb()
+    {
+        var debug = "Don't climb";
+        RaycastHit hitLower;
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+        {
+            RaycastHit hitUpper;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
+            {
+                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+                debug = "climb";
+            }
+        }
+
+        RaycastHit hitLower45;
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(1.5f, 0, 1), out hitLower45, 0.1f))
+        {
+
+            RaycastHit hitUpper45;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.2f))
+            {
+                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+                debug = "climb";
+            }
+        }
+
+        RaycastHit hitLowerMinus45;
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.1f))
+        {
+
+            RaycastHit hitUpperMinus45;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.2f))
+            {
+                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+                debug = "climb";
+            }
+        }
+        Debug.Log(debug);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(stepRayLower.transform.position, 0.1f);
+        Gizmos.DrawWireSphere(stepRayUpper.transform.position, 0.1f);
 
     }
 }

@@ -7,6 +7,7 @@ public class Player : Entity
     
     private PlayerState _status;
     private GrabObjects _grabObjects;
+    private PressButton _pressButton;
 
     private DestroyObjects _destroyObjects;
     
@@ -29,6 +30,7 @@ public class Player : Entity
         _jump = GetComponent<IJumpable>();
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
+        _pressButton = GetComponent<PressButton>();
         _destroyObjects = GetComponent<DestroyObjects>();
         _particle = GetComponent<ParticleTransition>();
         _anim = GetComponent<PlayerAnimation>();
@@ -114,6 +116,12 @@ public class Player : Entity
         if (Data.ID == "Player_Pyramid")
             _destroyObjects.Action();
 
+    }
+
+    public void PressButton()
+    {
+        if(_pressButton)
+            _pressButton.ActivateButton();
     }
 
     

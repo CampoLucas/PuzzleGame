@@ -98,7 +98,11 @@ public class InputHandler : MonoBehaviour
 
     private void GrabInput()
     {
-        if (_grabInput) _player.GrabObject();
+        if (_grabInput)
+        {
+            _player.GrabObject();
+            _player.PressButton();
+        }
     }
 
     private void SwapInput()

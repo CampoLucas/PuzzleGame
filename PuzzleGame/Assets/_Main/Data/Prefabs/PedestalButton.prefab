@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 619036614214811296}
   - component: {fileID: 4258086796082087622}
   - component: {fileID: 1902539709314436541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2868569226077376510}
   - component: {fileID: 2070488978373974080}
   - component: {fileID: 5479275822528010315}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,8 +202,7 @@ GameObject:
   - component: {fileID: 8305675634437676986}
   - component: {fileID: 8305675634437676987}
   - component: {fileID: 8305675634437676984}
-  - component: {fileID: 8305675634437676985}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PedestalButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,16 +261,3 @@ MonoBehaviour:
   onPressed:
     m_PersistentCalls:
       m_Calls: []
---- !u!65 &8305675634437676985
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8305675634437676982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}

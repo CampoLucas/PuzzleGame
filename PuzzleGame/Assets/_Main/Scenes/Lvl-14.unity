@@ -2139,7 +2139,7 @@ PrefabInstance:
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 313547363}
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2158,7 +2158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetState
+      value: SetDoor
       objectReference: {fileID: 0}
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -2170,7 +2170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Fan, Assembly-CSharp
+      value: Door, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2182,7 +2182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7513032117965279245, guid: ec5d74952efd4a148919ddd9aec097c3, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3756,6 +3756,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8833067397054411937, guid: 0e8e5b26b5f11834d8c804c444c79924, type: 3}
   m_PrefabInstance: {fileID: 313547361}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &313547363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8833067397054411942, guid: 0e8e5b26b5f11834d8c804c444c79924, type: 3}
+  m_PrefabInstance: {fileID: 313547361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a3f713c55ba17459763ab1321946ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &317432592
 PrefabInstance:
   m_ObjectHideFlags: 0

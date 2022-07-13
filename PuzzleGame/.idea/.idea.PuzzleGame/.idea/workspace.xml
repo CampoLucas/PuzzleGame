@@ -20,7 +20,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/Player/DestroyObjects.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/Player/ParticleTransition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Entities/StatsSO.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Button/SquereButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Button/Button.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Button/SquereCircleButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Fan.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -114,6 +115,7 @@
       <workItem from="1656279238756" duration="630000" />
       <workItem from="1657119025468" duration="1027000" />
       <workItem from="1657562613774" duration="1357000" />
+      <workItem from="1657647504872" duration="4109000" />
     </task>
     <servers />
   </component>

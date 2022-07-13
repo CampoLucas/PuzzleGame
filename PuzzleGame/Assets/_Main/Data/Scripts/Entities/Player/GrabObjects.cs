@@ -26,8 +26,6 @@ public class GrabObjects : MonoBehaviour
         _player.OnRespawn.AddListener(DropObj);
     }
 
-    
-
     public void GrabObject()
     {
         Collider[] hitColliders =

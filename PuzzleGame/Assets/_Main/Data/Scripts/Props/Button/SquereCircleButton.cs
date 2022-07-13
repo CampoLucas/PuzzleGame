@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SquereButton : Button
+public class SquereCircleButton : CircleButton
 {
     
     protected override void OnTriggerEnter(Collider other)

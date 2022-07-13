@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using UnityEngine;
 
 public class Player : Entity
@@ -19,11 +15,12 @@ public class Player : Entity
     private ParticleTransition _particle;
 
     private PlayerAnimation _anim;
+
     
     public bool IsGrounded => _status.IsGrounded;
     public bool IsInteracting => _status.IsInteracting;
 
-    
+    [SerializeField]public bool IsPressingButton;
 
     protected override void Awake()
     {
@@ -119,5 +116,5 @@ public class Player : Entity
 
     }
 
-
+    
 }

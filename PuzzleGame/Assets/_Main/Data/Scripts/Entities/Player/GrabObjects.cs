@@ -37,7 +37,8 @@ public class GrabObjects : SphereRange
     private void GrabObj()
     {
         if (!_grabbedObject) return;
-        Destroy(_grabbedObject.GetComponent<Rigidbody>()); // .isKinematic = true;
+        //Destroy(_grabbedObject.GetComponent<Rigidbody>()); // .isKinematic = true;
+        _grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
         //_grabbedObject.GetComponent<Rigidbody>().useGravity = false;
         _grabbedObject.transform.position = _hand.position;
         _grabbedObject.transform.rotation = transform.rotation;
@@ -46,14 +47,11 @@ public class GrabObjects : SphereRange
 
     public void DropObj()
     {
-        if (_grabbedObject)
-        {
-            _grabbedObject.AddComponent<Rigidbody>(); 
-            //_grabbedObject.GetComponent<Rigidbody>().useGravity = true;
-            _grabbedObject.transform.SetParent(null);
-            _grabbedObject = null;
-            
-        }
+        if(!_grabbedObject) return;
+        //_grabbedObject.GetComponent<Rigidbody>().useGravity = true;
+        _grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+        _grabbedObject.transform.SetParent(null);
+        _grabbedObject = null;
     }
 
     public void UpdateBoxPos()

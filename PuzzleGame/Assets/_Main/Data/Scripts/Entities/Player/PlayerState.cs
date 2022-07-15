@@ -7,9 +7,10 @@ public class PlayerState : MonoBehaviour
 {
     public bool IsGrounded => _isGrounded;
     [SerializeField] private bool _isGrounded;
-
     public bool IsInteracting => _isInteracting;
     [SerializeField] private bool _isInteracting;
+    public bool IsClimbing => _isClimbing;
+    [SerializeField]private bool _isClimbing;
 
     [SerializeField] private Transform _feet;
     [SerializeField] private LayerMask _player;
@@ -24,6 +25,7 @@ public class PlayerState : MonoBehaviour
     }
 
     public void SetIsInteracting(bool isInteracting) => _isInteracting = isInteracting;
+    public void SetIsClimbing(bool isClimbing) => _isClimbing = isClimbing;
 
     private void OnDrawGizmos()
     {

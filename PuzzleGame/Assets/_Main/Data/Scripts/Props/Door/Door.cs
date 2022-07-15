@@ -7,11 +7,12 @@ public class Door : MonoBehaviour
 {
     private Animator _anim;
 
-    [SerializeField] private bool isOpened = false;
+    [SerializeField] private bool _isOpened;
     public bool prevState;
 
-    [SerializeField] private string nextLevel;
+    [SerializeField] private string _nextLevel;
 
+    [SerializeField] private bool _mute;
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -20,34 +21,41 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _anim.SetBool("isOpened", isOpened);
+        _anim.SetBool("isOpened", _isOpened);
 
-        if (isOpened && prevState != isOpened)
+        if (_isOpened && prevState != _isOpened)
             OpenDoor();
-        if (!isOpened && prevState != isOpened)
+        if (!_isOpened && prevState != _isOpened)
             CloseDoor();
 
     }
 
     private void OpenDoor()
     {
-        prevState = isOpened;
-        AudioManager.instance.Play("DoorOn");
+        prevState = _isOpened;
+        if(!_mute)
+            AudioManager.instance.Play("DoorOn");
     }
 
     private void CloseDoor()
     {
-        prevState = isOpened;
+        prevState = _isOpened;
         //FindObjectOfType<AudioManager>().Play("DoorOff");
-        AudioManager.instance.Play("DoorOff");
+        if(!_mute)
+            AudioManager.instance.Play("DoorOff");
     }
 
-    public void SetDoor(bool isOpen) => isOpened = isOpen;
+    public void SetDoor(bool isOpen) => _isOpened = isOpen;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isOpened)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (_isOpened)
+        {
+            if (_nextLevel == "")
+                GameManager.instance.LoadLevel();
+            else
+                GameManager.instance.LoadLevel(_nextLevel);
+        }
     }
 
 }

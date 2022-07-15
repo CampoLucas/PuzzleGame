@@ -4,6 +4,7 @@ public class Player : Entity
 {
     private IMovable _movement;
     private IJumpable _jump;
+    private ClimbLadder _climbLadder;
     
     private PlayerState _status;
     private GrabObjects _grabObjects;
@@ -20,8 +21,9 @@ public class Player : Entity
     
     public bool IsGrounded => _status.IsGrounded;
     public bool IsInteracting => _status.IsInteracting;
-
-    [SerializeField]public bool IsPressingButton;
+    public bool IsClimbing => _status.IsClimbing;
+    
+    //[SerializeField] private bool IsPressingButton;
 
     protected override void Awake()
     {
@@ -34,6 +36,7 @@ public class Player : Entity
         _destroyObjects = GetComponent<DestroyObjects>();
         _particle = GetComponent<ParticleTransition>();
         _anim = GetComponent<PlayerAnimation>();
+        _climbLadder = GetComponent<ClimbLadder>();
         
         
         _swap = GetComponent<Swap>();
@@ -103,6 +106,12 @@ public class Player : Entity
             _status.SetIsInteracting(isInteracting);
     }
 
+    public void SetIsClimbing(bool isClimbing)
+    {
+        if(_status)
+            _status.SetIsClimbing(isClimbing);
+    }
+
     public StatsSO GetStats => _swap.GetCurrentStats;
     private void UpdateStats()
     {
@@ -122,6 +131,12 @@ public class Player : Entity
     {
         if(_pressButton)
             _pressButton.ActivateButton();
+    }
+
+    public void ClimbLadder()
+    {
+        if(_climbLadder)
+            _climbLadder.Climb();
     }
 
     

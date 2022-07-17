@@ -17,6 +17,7 @@ public class Movable : MonoBehaviour, IMovable
     [SerializeField] GameObject stepRayLower;
     [SerializeField] float stepHeight = 0.3f;
     [SerializeField] float stepSmooth = 10f;
+    [Range(0, 1)] [SerializeField] float stepFront = 0f;
 
 
     private void Awake()
@@ -28,12 +29,11 @@ public class Movable : MonoBehaviour, IMovable
         stepRayUpper.transform.position = new Vector3(stepRayLower.transform.position.x, stepHeight, stepRayLower.transform.position.z);
     }
 
-    private void Update()
-    {
-    }
-
     public void Move(Vector3 direction)
     {
+
+        if (_player.IsGrounded)
+             stepClimb();
         float currentForce;
         if (!_player.IsGrounded)
             currentForce = _player.GetStats.MovementForce / 3;
@@ -63,9 +63,6 @@ public class Movable : MonoBehaviour, IMovable
         //     _rigidbody.velocity = horizontalVelocity.normalized * _player.GetStats.MaxSpeed + Vector3.up * _rigidbody.velocity.y;
 
         HandleRotation(direction);
-
-        if (_player.IsGrounded)
-             stepClimb();
     }
 
     private void HandleRotation (Vector3 direction)
@@ -99,7 +96,7 @@ public class Movable : MonoBehaviour, IMovable
             RaycastHit hitUpper;
             if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
             {
-                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
                 debug = "climb";
             }
         }
@@ -111,7 +108,7 @@ public class Movable : MonoBehaviour, IMovable
             RaycastHit hitUpper45;
             if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.2f))
             {
-                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
                 debug = "climb";
             }
         }
@@ -123,12 +120,38 @@ public class Movable : MonoBehaviour, IMovable
             RaycastHit hitUpperMinus45;
             if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.2f))
             {
-                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+                debug = "climb";
+            }
+        }
+
+        RaycastHit hitLower22;
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(0.75f, 0, 1), out hitLower22, 0.1f))
+        {
+
+            RaycastHit hitUpper22;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(0.75f, 0, 1), out hitUpper22, 0.2f))
+            {
+                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+                debug = "climb";
+            }
+        }
+
+        RaycastHit hitLowerMinus22;
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-0.75f, 0, 1), out hitLowerMinus22, 0.1f))
+        {
+
+            RaycastHit hitUpperMinus22;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-0.75f, 0, 1), out hitUpperMinus22, 0.2f))
+            {
+                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
                 debug = "climb";
             }
         }
         Debug.Log(debug);
     }
+
+
 
     private void OnDrawGizmos()
     {

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-     [SerializeField] public float timer = 0;
+     [SerializeField] public float seconds = 0;
 
     public TextMeshProUGUI textTimerMinute;
     public TextMeshProUGUI textTimerSeconds;
@@ -24,15 +24,15 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
+        seconds -= Time.deltaTime;
 
-        textTimerMinute.text = TimeSpan.FromSeconds(timer).Minutes.ToString("f0").PadLeft(2, '0');
-        textTimerSeconds.text = TimeSpan.FromSeconds(timer).Seconds.ToString("f0").PadLeft(2,'0');
+        textTimerMinute.text = TimeSpan.FromSeconds(seconds).Minutes.ToString("f0").PadLeft(2, '0');
+        textTimerSeconds.text = TimeSpan.FromSeconds(seconds).Seconds.ToString("f0").PadLeft(2,'0');
 
-        if (timer <= 3)
+        if (seconds <= 3)
             Debug.Log("faltan 3 segundos");
 
-        if (timer <= 0)
+        if (seconds <= 0)
         SceneManager.LoadScene(scene);
 
 

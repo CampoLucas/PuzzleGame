@@ -16188,7 +16188,6 @@ GameObject:
   - component: {fileID: 483459734}
   - component: {fileID: 483459737}
   - component: {fileID: 483459736}
-  - component: {fileID: 483459735}
   m_Layer: 5
   m_Name: TimerMinutesMesh
   m_TagString: Untagged
@@ -16215,21 +16214,6 @@ RectTransform:
   m_AnchoredPosition: {x: -53, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &483459735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483459733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 749eed30fa6f7e845bc943ed8698b33c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 600
-  textTimerMinute: {fileID: 483459736}
-  textTimerSeconds: {fileID: 874157407}
 --- !u!114 &483459736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27264,7 +27248,6 @@ GameObject:
   - component: {fileID: 874157405}
   - component: {fileID: 874157408}
   - component: {fileID: 874157407}
-  - component: {fileID: 874157406}
   m_Layer: 5
   m_Name: TimerSecondsMesh
   m_TagString: Untagged
@@ -27291,21 +27274,6 @@ RectTransform:
   m_AnchoredPosition: {x: 118.8, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &874157406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874157404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 749eed30fa6f7e845bc943ed8698b33c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 600
-  textTimerMinute: {fileID: 483459736}
-  textTimerSeconds: {fileID: 874157407}
 --- !u!114 &874157407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33829,8 +33797,9 @@ GameObject:
   - component: {fileID: 1076974596}
   - component: {fileID: 1076974595}
   - component: {fileID: 1076974594}
+  - component: {fileID: 1076974597}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33919,6 +33888,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1076974597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076974592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 749eed30fa6f7e845bc943ed8698b33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 10
+  textTimerMinute: {fileID: 483459736}
+  textTimerSeconds: {fileID: 874157407}
 --- !u!1001 &1078457108
 PrefabInstance:
   m_ObjectHideFlags: 0

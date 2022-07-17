@@ -15,16 +15,20 @@ public class Movable : MonoBehaviour, IMovable
 
     public Vector3 m_DetectorSize = Vector3.zero;
     public float m_DetectorOffsetZ =0.5f;
+    public float m_DetectorOffsetY = 0.5f;
+
 
 
     public LayerMask m_LayerMask;
+
+    private float stairing = 0f;
 
 
     [SerializeField] GameObject stepRayUpper;
     [SerializeField] GameObject stepRayLower;
     [SerializeField] float stepHeight = 0.3f;
-    [SerializeField] float stepSmooth = 10f;
-    [Range(0, 1)] [SerializeField] float stepFront = 0f;
+    [SerializeField] float stepSmooth = 25f;
+    [Range(0, 1)] [SerializeField] float stepFront = 0.1f;
 
 
     private void Awake()
@@ -96,80 +100,95 @@ public class Movable : MonoBehaviour, IMovable
 
     void stepClimb()
     {
-        var debug = "Don't climb";
-        RaycastHit hitLower;
-        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
-        {
-            RaycastHit hitUpper;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
-            {
-                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
-                debug = "climb";
-            }
-        }
+        //RaycastHit hitLower;
+        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+        //{
+        //    RaycastHit hitUpper;
+        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
+        //    {
+        //        _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+        //        debug = "climb";
+        //    }
+        //}
 
-        RaycastHit hitLower45;
-        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(1.5f, 0, 1), out hitLower45, 0.1f))
-        {
+        //RaycastHit hitLower45;
+        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(1.5f, 0, 1), out hitLower45, 0.1f))
+        //{
 
-            RaycastHit hitUpper45;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.2f))
-            {
-                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
-                debug = "climb";
-            }
-        }
+        //    RaycastHit hitUpper45;
+        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.2f))
+        //    {
+        //        _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+        //        debug = "climb";
+        //    }
+        //}
 
-        RaycastHit hitLowerMinus45;
-        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.1f))
-        {
+        //RaycastHit hitLowerMinus45;
+        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.1f))
+        //{
 
-            RaycastHit hitUpperMinus45;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.2f))
-            {
-                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
-                debug = "climb";
-            }
-        }
+        //    RaycastHit hitUpperMinus45;
+        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.2f))
+        //    {
+        //        _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+        //        debug = "climb";
+        //    }
+        //}
 
-        RaycastHit hitLower22;
-        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(0.75f, 0, 1), out hitLower22, 0.1f))
-        {
+        //RaycastHit hitLower22;
+        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(0.75f, 0, 1), out hitLower22, 0.1f))
+        //{
 
-            RaycastHit hitUpper22;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(0.75f, 0, 1), out hitUpper22, 0.2f))
-            {
-                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
-                debug = "climb";
-            }
-        }
+        //    RaycastHit hitUpper22;
+        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(0.75f, 0, 1), out hitUpper22, 0.2f))
+        //    {
+        //        _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+        //        debug = "climb";
+        //    }
+        //}
 
-        RaycastHit hitLowerMinus22;
-        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-0.75f, 0, 1), out hitLowerMinus22, 0.1f))
-        {
+        //RaycastHit hitLowerMinus22;
+        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-0.75f, 0, 1), out hitLowerMinus22, 0.1f))
+        //{
 
-            RaycastHit hitUpperMinus22;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-0.75f, 0, 1), out hitUpperMinus22, 0.2f))
-            {
-                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
-                debug = "climb";
-            }
-        }
+        //    RaycastHit hitUpperMinus22;
+        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-0.75f, 0, 1), out hitUpperMinus22, 0.2f))
+        //    {
+        //        _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+        //        debug = "climb";
+        //    }
+        //}
 
         //Use the OverlapBox to detect if there are any other colliders within this box area.
         //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
-        Vector3 colliderPos = transform.position + (transform.forward * m_DetectorOffsetZ);
-        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity, m_LayerMask);
+
+        Vector3 pos = Vector3.zero;
+        pos.z = m_DetectorOffsetZ;
+        pos.y = m_DetectorOffsetY;
+
+        //Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position + pos, transform.localScale / 2, Quaternion.identity, m_LayerMask);
+
+        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position + pos, m_DetectorSize * 2.0f, Quaternion.identity, m_LayerMask);
+
+
         int i = 0;
         //Check when there is a new collider coming into contact with the box
-        while (i < hitColliders.Length)
+        if (hitColliders.Length > 0)
         {
             //Output all of the collider names
-            Debug.Log("Hit : " + hitColliders[i].name + i);
+            //Debug.Log("Hit : " + hitColliders[i].name + i);
+            Debug.Log("Climb");
+
+            if (_player.IsGrounded && stairing >= 0.3 )
+            {
+                _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+                stairing = 0f;
+            }
             //Increase the number of Colliders in the array
+
+            stairing += Time.deltaTime;
             i++;
         }
-        Debug.Log(debug);
     }
 
 
@@ -189,6 +208,7 @@ public class Movable : MonoBehaviour, IMovable
         Gizmos.matrix = transform.localToWorldMatrix;
         Vector3 pos = Vector3.zero;
         pos.z = m_DetectorOffsetZ;
+        pos.y = m_DetectorOffsetY;
         Gizmos.DrawWireCube(pos, m_DetectorSize * 2.0f);
 
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8666022458631868578}
   - component: {fileID: -6762325862011917091}
   m_Layer: 0
-  m_Name: BrickTile 1
+  m_Name: BrickTile 1_ESTE NO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

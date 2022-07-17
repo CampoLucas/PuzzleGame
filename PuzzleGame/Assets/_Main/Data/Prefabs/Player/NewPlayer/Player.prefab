@@ -145,7 +145,6 @@ MonoBehaviour:
   OnRespawn:
     m_PersistentCalls:
       m_Calls: []
-  IsPressingButton: 0
 --- !u!114 &3002208007529237683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGrounded: 0
   _isInteracting: 0
+  _isClimbing: 0
   _feet: {fileID: 1134513917069397554}
   _player:
     serializedVersion: 2
@@ -216,6 +216,7 @@ MonoBehaviour:
   stepRayLower: {fileID: 1137413982453922403}
   stepHeight: 0.3
   stepSmooth: 10
+  stepFront: 0
 --- !u!114 &3002208007529237684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +392,7 @@ Transform:
   m_GameObject: {fileID: 3084520420685323287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.28, y: 0.05, z: 0.28}
+  m_LocalScale: {x: 0.28, y: 0.2, z: 0.28}
   m_Children: []
   m_Father: {fileID: 3002208007529237689}
   m_RootOrder: 5

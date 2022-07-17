@@ -6,34 +6,62 @@ using TMPro;
 using System;
 using UnityEngine.SceneManagement;
 
+public static class SceneLoaderParams
+{
+    public static string mainScene;
+    public static float timeSet;
+    public static float beforeTimeFinish;
+
+}
+
 public class Timer : MonoBehaviour
 {
-     [SerializeField] public float timer = 0;
-
     public TextMeshProUGUI textTimerMinute;
     public TextMeshProUGUI textTimerSeconds;
 
-    string scene;
+    [Header("Timer config")]
+    [SerializeField] public bool isMainLevel;
+    [SerializeField] public float seconds;
+    [SerializeField] public float beforeTimeFinish;
 
+    private float _setTime;
+    string scene;
+    bool secondsPassed;
 
 
     private void Start()
     {
      scene = SceneManager.GetActiveScene().name;
+        if (isMainLevel)
+        {
+            SceneLoaderParams.mainScene = scene;
+            SceneLoaderParams.beforeTimeFinish = beforeTimeFinish;
+            _setTime = seconds;
+        } else
+        {
+            _setTime = SceneLoaderParams.timeSet;
+        }
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
 
-        textTimerMinute.text = TimeSpan.FromSeconds(timer).Minutes.ToString("f0").PadLeft(2, '0');
-        textTimerSeconds.text = TimeSpan.FromSeconds(timer).Seconds.ToString("f0").PadLeft(2,'0');
+        _setTime -= Time.deltaTime;
 
-        if (timer <= 3)
-            Debug.Log("faltan 3 segundos");
+        if (isMainLevel)
+            SceneLoaderParams.timeSet = _setTime;
 
-        if (timer <= 0)
-        SceneManager.LoadScene(scene);
+        textTimerMinute.text = TimeSpan.FromSeconds(_setTime).Minutes.ToString("f0").PadLeft(2, '0');
+        textTimerSeconds.text = TimeSpan.FromSeconds(_setTime).Seconds.ToString("f0").PadLeft(2,'0');
+
+        if (_setTime <= SceneLoaderParams.beforeTimeFinish && !secondsPassed)
+        {
+            secondsPassed = true;
+            Debug.Log("faltan " + SceneLoaderParams.beforeTimeFinish + " segundos");
+        }
+
+        if (_setTime <= 0)
+        SceneManager.LoadScene(SceneLoaderParams.mainScene);
 
 
         //textoTimer.text = "" + timer.ToString("f0");

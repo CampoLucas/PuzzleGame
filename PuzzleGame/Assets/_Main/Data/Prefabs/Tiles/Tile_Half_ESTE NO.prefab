@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8666022458631868578}
   - component: {fileID: -6762325862011917091}
   m_Layer: 0
-  m_Name: SecurityTileOne_Half
+  m_Name: Tile_Half_ESTE NO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3e34d02af6998304aa213783b4dade17, type: 2}
+  - {fileID: 2100000, guid: b5b3dda081546ef449abf38b833063a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

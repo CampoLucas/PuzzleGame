@@ -84,23 +84,6 @@ public class Fan : Prop
         base.OnTriggerStay(other);
         if (_state)
         {
-            // Player _player = other.GetComponent<Collider>().GetComponentInParent<Player>();
-            // if (_player != null)
-            // {
-            //     if (_player.Data.ID == "Player_Pyramid")
-            //         _currentForce = _force * 2.5f;
-            //     else if (_player.Data.ID == "Player_Sphere")
-            //         _currentForce = _force;
-            //     else
-            //         _currentForce = 0f;
-            // }
-            // else
-            // {
-            //     _currentForce = _force;
-            // }
-            //     
-            // other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
-            
             Entity obj = other.GetComponent<Collider>().GetComponentInParent<Entity>();
             if (obj)
             {
@@ -113,9 +96,14 @@ public class Fan : Prop
                 
                 other.GetComponent<Collider>().GetComponentInParent<Rigidbody>().AddForce(transform.up * _currentForce * Time.deltaTime, ForceMode.Force);
             }
-            Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
-            if (player)
-                player.SetIsInteracting(true);
+
+            if (other.CompareTag("Player"))
+            {
+                Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
+                if (player)
+                    player.SetIsInteracting(true);
+            }
+                
 
         }
     }
@@ -125,17 +113,23 @@ public class Fan : Prop
         base.OnTriggerEnter(other);
         if (_state)
         {
-            Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
-            if (player)
-                player.SetIsInteracting(true);
+            if (other.CompareTag("Player"))
+            {
+                Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
+                if (player)
+                    player.SetIsInteracting(true);
+            }
         }
     }
     
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-        Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
-        if (player)
-            player.SetIsInteracting(false);
+        if (other.CompareTag("Player"))
+        {
+            Player player = other.GetComponent<Collider>().GetComponentInParent<Player>();
+            if (player)
+                player.SetIsInteracting(false);
+        }
     }
 }

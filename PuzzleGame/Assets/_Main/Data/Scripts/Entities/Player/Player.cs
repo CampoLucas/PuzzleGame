@@ -1,16 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using UnityEngine;
 
 public class Player : Entity
 {
     private IMovable _movement;
     private IJumpable _jump;
+    private ClimbLadder _climbLadder;
     
     private PlayerState _status;
     private GrabObjects _grabObjects;
+    private PressButton _pressButton;
 
     private DestroyObjects _destroyObjects;
     
@@ -19,11 +17,13 @@ public class Player : Entity
     private ParticleTransition _particle;
 
     private PlayerAnimation _anim;
+
     
     public bool IsGrounded => _status.IsGrounded;
     public bool IsInteracting => _status.IsInteracting;
-
+    public bool IsClimbing => _status.IsClimbing;
     
+    //[SerializeField] private bool IsPressingButton;
 
     protected override void Awake()
     {
@@ -32,9 +32,11 @@ public class Player : Entity
         _jump = GetComponent<IJumpable>();
         _status = GetComponent<PlayerState>();
         _grabObjects = GetComponentInChildren<GrabObjects>();
+        _pressButton = GetComponent<PressButton>();
         _destroyObjects = GetComponent<DestroyObjects>();
         _particle = GetComponent<ParticleTransition>();
         _anim = GetComponent<PlayerAnimation>();
+        _climbLadder = GetComponent<ClimbLadder>();
         
         
         _swap = GetComponent<Swap>();
@@ -104,6 +106,12 @@ public class Player : Entity
             _status.SetIsInteracting(isInteracting);
     }
 
+    public void SetIsClimbing(bool isClimbing)
+    {
+        if(_status)
+            _status.SetIsClimbing(isClimbing);
+    }
+
     public StatsSO GetStats => _swap.GetCurrentStats;
     private void UpdateStats()
     {
@@ -119,5 +127,17 @@ public class Player : Entity
 
     }
 
+    public void PressButton()
+    {
+        if(_pressButton)
+            _pressButton.ActivateButton();
+    }
 
+    public void ClimbLadder()
+    {
+        if(_climbLadder)
+            _climbLadder.Climb();
+    }
+
+    
 }

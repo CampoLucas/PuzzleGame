@@ -28,23 +28,20 @@ public class InputHandler : MonoBehaviour
 
     private void Update()
     {
-
+        if(_player.IsClimbing)
+            return;
         HandleInput();
         
-        //_player.Move(new Vector3(horizontal, vertical));
-        if (_jumpInput) _player.Jump();
-        if (_grabInput) _player.GrabObject();
-        //if (swap_Input) _player.SwapPlayer();
-        
-        if (_swapLeftInput) _player.SwapPrevius();
-        else if (_swapRightInput)  _player.SwapNext();
-        
-        if(_actionInput) _player.Action();
         _player.UpdateAnimationValues(_horizontal, _vertical);
     }
 
     private void FixedUpdate()
     {
+        if (_player.IsClimbing)
+        {
+            _player.ClimbLadder();
+            return;
+        }
         _player.Move(new Vector3(_horizontal, _vertical));
     }
 
@@ -58,7 +55,6 @@ public class InputHandler : MonoBehaviour
         _swapRightInput = false;
 
         _actionInput = false;
-
     }
 
     private void OnEnable()
@@ -81,9 +77,10 @@ public class InputHandler : MonoBehaviour
     private void HandleInput()
     {
         MoveInput();
-        //JumpInput();
-        //GrabInput();
-        //SwapInput();
+        JumpInput();
+        GrabInput();
+        SwapInput();
+        ActionInput();
     }
     private void MoveInput()
     {
@@ -93,9 +90,28 @@ public class InputHandler : MonoBehaviour
         _moveAmount = Mathf.Clamp01(Mathf.Abs(_horizontal) + Mathf.Abs(_vertical));
     }
 
-    //private void JumpInput() => _inputActions.PlayerActions.Jump.performed += i => jump_Input = true;
+    private void JumpInput()
+    {
+        if (_jumpInput) _player.Jump();
+    }
 
-    //private void GrabInput() => _inputActions.PlayerActions.Grab.performed += i => grab_Input = true;
+    private void GrabInput()
+    {
+        if (_grabInput)
+        {
+            _player.GrabObject();
+            _player.PressButton();
+        }
+    }
 
-    //private void SwapInput() => _inputActions.PlayerActions.Swap.performed += i => swapLeft_Input = true;
+    private void SwapInput()
+    {
+        if (_swapLeftInput) _player.SwapPrevius();
+        else if (_swapRightInput)  _player.SwapNext();
+    }
+
+    private void ActionInput()
+    {
+        if(_actionInput) _player.Action();
+    }
 }

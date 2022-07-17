@@ -13,6 +13,13 @@ public class Movable : MonoBehaviour, IMovable
 
     [SerializeField] private Transform _camera;
 
+    public Vector3 m_DetectorSize = Vector3.zero;
+    public float m_DetectorOffsetZ =0.5f;
+
+
+    public LayerMask m_LayerMask;
+
+
     [SerializeField] GameObject stepRayUpper;
     [SerializeField] GameObject stepRayLower;
     [SerializeField] float stepHeight = 0.3f;
@@ -148,6 +155,20 @@ public class Movable : MonoBehaviour, IMovable
                 debug = "climb";
             }
         }
+
+        //Use the OverlapBox to detect if there are any other colliders within this box area.
+        //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
+        Vector3 colliderPos = transform.position + (transform.forward * m_DetectorOffsetZ);
+        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity, m_LayerMask);
+        int i = 0;
+        //Check when there is a new collider coming into contact with the box
+        while (i < hitColliders.Length)
+        {
+            //Output all of the collider names
+            Debug.Log("Hit : " + hitColliders[i].name + i);
+            //Increase the number of Colliders in the array
+            i++;
+        }
         Debug.Log(debug);
     }
 
@@ -158,6 +179,17 @@ public class Movable : MonoBehaviour, IMovable
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(stepRayLower.transform.position, 0.1f);
         Gizmos.DrawWireSphere(stepRayUpper.transform.position, 0.1f);
+
+        //Gizmos.color = Color.green;
+        ////Check that it is being run in Play Mode, so it doesn't try to draw this in Editor mode
+        //    //Draw a cube where the OverlapBox is (positioned where your GameObject is as well as a size)
+        //    Gizmos.DrawWireCube(transform.position, transform.localScale);
+
+        Gizmos.color = Color.green;
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Vector3 pos = Vector3.zero;
+        pos.z = m_DetectorOffsetZ;
+        Gizmos.DrawWireCube(pos, m_DetectorSize * 2.0f);
 
     }
 }

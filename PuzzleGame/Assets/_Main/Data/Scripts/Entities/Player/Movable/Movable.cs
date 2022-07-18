@@ -177,11 +177,19 @@ public class Movable : MonoBehaviour, IMovable
         {
             //Output all of the collider names
             //Debug.Log("Hit : " + hitColliders[i].name + i);
-            Debug.Log("Climb");
+            Debug.Log(LayerMask.NameToLayer("Stair"));
 
-            if (_player.IsGrounded && stairing >= 0.3 )
+            if (_player.IsGrounded && stairing >= 0.1f )
             {
+            if(hitColliders[i].gameObject.layer == LayerMask.NameToLayer("FloorButton"))
+                {
+                    _rigidbody.position -= new Vector3(stepFront, -10f * Time.deltaTime, 0f);
+                } else
+                {
                 _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
+                }
+
+
                 stairing = 0f;
             }
             //Increase the number of Colliders in the array

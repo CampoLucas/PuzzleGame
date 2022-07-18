@@ -6,13 +6,13 @@ using TMPro;
 using System;
 using UnityEngine.SceneManagement;
 
-public static class SceneLoaderParams
-{
-    public static string mainScene;
-    public static float timeSet;
-    public static float beforeTimeFinish;
-
-}
+// public static class SceneLoaderParams
+// {
+//     public static string mainScene;
+//     public static float timeSet;
+//     public static float beforeTimeFinish;
+//
+// }
 
 public class Timer : MonoBehaviour
 {

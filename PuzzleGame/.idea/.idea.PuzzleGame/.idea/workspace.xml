@@ -27,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Button/SquereCircleButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Fan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/Props/Ladder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Main/Data/Scripts/TimerController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -126,7 +127,7 @@
       <workItem from="1658002585345" duration="2237000" />
       <workItem from="1658085127548" duration="689000" />
       <workItem from="1658150036758" duration="330000" />
-      <workItem from="1658150854002" duration="1392000" />
+      <workItem from="1658150854002" duration="4622000" />
     </task>
     <servers />
   </component>

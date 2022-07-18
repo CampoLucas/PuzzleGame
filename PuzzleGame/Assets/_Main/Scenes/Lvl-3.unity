@@ -621,6 +621,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1130647368987155734, guid: b6c8b9e8c45fe2d4aa3a19e56acd55ba, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1387985749632167433, guid: b6c8b9e8c45fe2d4aa3a19e56acd55ba, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -16029,6 +16033,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1130647368987155734, guid: b6c8b9e8c45fe2d4aa3a19e56acd55ba, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1387985749632167433, guid: b6c8b9e8c45fe2d4aa3a19e56acd55ba, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -30210,6 +30218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrickTile
       objectReference: {fileID: 0}
+    - target: {fileID: 7152589163603226999, guid: 2b570598d61b32544b19289c818fc578, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7496462986837535693, guid: 2b570598d61b32544b19289c818fc578, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -32526,6 +32538,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrickTile
       objectReference: {fileID: 0}
+    - target: {fileID: 7152589163603226999, guid: 2b570598d61b32544b19289c818fc578, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7496462986837535693, guid: 2b570598d61b32544b19289c818fc578, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -33773,7 +33789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189212032604569028, guid: 6a95ad3f087ba8749999fbeb501ffc2a, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4189212032604569031, guid: 6a95ad3f087ba8749999fbeb501ffc2a, type: 3}
       propertyPath: m_RootOrder
@@ -48783,7 +48799,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_DetectorOffsetY
-      value: 0.2
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_LayerMask.m_Bits
+      value: 3072
       objectReference: {fileID: 0}
     - target: {fileID: 3002208007529237686, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_Drag
@@ -48840,6 +48860,10 @@ PrefabInstance:
     - target: {fileID: 3002208007529237689, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237690, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: _player.m_Bits
+      value: 3575
       objectReference: {fileID: 0}
     - target: {fileID: 3002208008406726358, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_LocalPosition.z

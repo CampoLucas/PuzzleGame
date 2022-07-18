@@ -179,7 +179,7 @@ public class Movable : MonoBehaviour, IMovable
             //Debug.Log("Hit : " + hitColliders[i].name + i);
             Debug.Log("Climb");
 
-            if (_player.IsGrounded && stairing >= 0.3 )
+            if (_player.IsGrounded && stairing >= 0.1f )
             {
                 _rigidbody.position -= new Vector3(stepFront, -stepSmooth * Time.deltaTime, 0f);
                 stairing = 0f;

@@ -33771,6 +33771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4189212032604569028, guid: 6a95ad3f087ba8749999fbeb501ffc2a, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4189212032604569031, guid: 6a95ad3f087ba8749999fbeb501ffc2a, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -48757,6 +48761,30 @@ PrefabInstance:
       propertyPath: _formGameObjects.Array.data[1]
       value: 
       objectReference: {fileID: 1963287686}
+    - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: stepHeight
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: stepSmooth
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_DetectorSize.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_DetectorSize.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_DetectorSize.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002208007529237685, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
+      propertyPath: m_DetectorOffsetY
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3002208007529237686, guid: 1319350e076eb4647a420f7462646e1c, type: 3}
       propertyPath: m_Drag
       value: 0.5

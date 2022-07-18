@@ -18,6 +18,8 @@ public class InputHandler : MonoBehaviour
     private bool _swapRightInput;
     private bool _swapLeftInput;
     private bool _actionInput;
+    private bool _nextLevel;
+    private bool _prevLevel;
 
     private Vector2 _movementInput;
 
@@ -55,6 +57,9 @@ public class InputHandler : MonoBehaviour
         _swapRightInput = false;
 
         _actionInput = false;
+
+        _nextLevel = false;
+        _prevLevel = false;
     }
 
     private void OnEnable()
@@ -69,6 +74,10 @@ public class InputHandler : MonoBehaviour
             _inputActions.PlayerActions.SwapL.performed += i => _swapLeftInput = true;
             _inputActions.PlayerActions.SwapR.performed += i => _swapRightInput = true;
             _inputActions.PlayerActions.Action.performed += i => _actionInput = true;
+            
+            _inputActions.PlayerActions.NextLevel.performed += i => _nextLevel = true;
+            
+            _inputActions.PlayerActions.PrevLevel.performed += i => _prevLevel = true;
         }
         _inputActions.Enable();
     }
@@ -81,6 +90,8 @@ public class InputHandler : MonoBehaviour
         GrabInput();
         SwapInput();
         ActionInput();
+        NextLevelInput();
+        PrevLevelInput();
     }
     private void MoveInput()
     {
@@ -113,5 +124,14 @@ public class InputHandler : MonoBehaviour
     private void ActionInput()
     {
         if(_actionInput) _player.Action();
+    }
+
+    private void NextLevelInput()
+    {
+        if(_nextLevel) GameManager.instance.LoadLevel();
+    }
+    private void PrevLevelInput()
+    {
+        if(_prevLevel) GameManager.instance.LoadPrevLevel();
     }
 }

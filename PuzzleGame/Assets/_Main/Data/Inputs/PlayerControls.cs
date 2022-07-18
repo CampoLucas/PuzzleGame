@@ -198,6 +198,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""d9944828-89d9-4f05-a3ba-725770e0f705"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrevLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""9112134a-bd32-4276-aef2-e949bf96e6c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -332,6 +350,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cc10a37-0eb9-4387-9870-87b3985d2edf"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a75fa05-7389-4e37-8f80-219e91cc63b7"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrevLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -371,6 +411,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerActions_SwapR = m_PlayerActions.FindAction("SwapR", throwIfNotFound: true);
         m_PlayerActions_Grab = m_PlayerActions.FindAction("Grab", throwIfNotFound: true);
         m_PlayerActions_Action = m_PlayerActions.FindAction("Action", throwIfNotFound: true);
+        m_PlayerActions_NextLevel = m_PlayerActions.FindAction("NextLevel", throwIfNotFound: true);
+        m_PlayerActions_PrevLevel = m_PlayerActions.FindAction("PrevLevel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -468,6 +510,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_SwapR;
     private readonly InputAction m_PlayerActions_Grab;
     private readonly InputAction m_PlayerActions_Action;
+    private readonly InputAction m_PlayerActions_NextLevel;
+    private readonly InputAction m_PlayerActions_PrevLevel;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -477,6 +521,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @SwapR => m_Wrapper.m_PlayerActions_SwapR;
         public InputAction @Grab => m_Wrapper.m_PlayerActions_Grab;
         public InputAction @Action => m_Wrapper.m_PlayerActions_Action;
+        public InputAction @NextLevel => m_Wrapper.m_PlayerActions_NextLevel;
+        public InputAction @PrevLevel => m_Wrapper.m_PlayerActions_PrevLevel;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -501,6 +547,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Action.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAction;
                 @Action.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAction;
                 @Action.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAction;
+                @NextLevel.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnNextLevel;
+                @NextLevel.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnNextLevel;
+                @NextLevel.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnNextLevel;
+                @PrevLevel.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnPrevLevel;
+                @PrevLevel.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnPrevLevel;
+                @PrevLevel.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnPrevLevel;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -520,6 +572,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Action.started += instance.OnAction;
                 @Action.performed += instance.OnAction;
                 @Action.canceled += instance.OnAction;
+                @NextLevel.started += instance.OnNextLevel;
+                @NextLevel.performed += instance.OnNextLevel;
+                @NextLevel.canceled += instance.OnNextLevel;
+                @PrevLevel.started += instance.OnPrevLevel;
+                @PrevLevel.performed += instance.OnPrevLevel;
+                @PrevLevel.canceled += instance.OnPrevLevel;
             }
         }
     }
@@ -553,5 +611,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnSwapR(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
+        void OnNextLevel(InputAction.CallbackContext context);
+        void OnPrevLevel(InputAction.CallbackContext context);
     }
 }

@@ -176,6 +176,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "NextLevel",
+                    "type": "Button",
+                    "id": "d9944828-89d9-4f05-a3ba-725770e0f705",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PrevLevel",
+                    "type": "Button",
+                    "id": "9112134a-bd32-4276-aef2-e949bf96e6c3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -308,6 +326,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8cc10a37-0eb9-4387-9870-87b3985d2edf",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a75fa05-7389-4e37-8f80-219e91cc63b7",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrevLevel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -16,7 +16,6 @@ public static class SceneLoaderParams
 
 public class Timer : MonoBehaviour
 {
-     [SerializeField] public float seconds;
 
     public TextMeshProUGUI textTimerMinute;
     public TextMeshProUGUI textTimerSeconds;

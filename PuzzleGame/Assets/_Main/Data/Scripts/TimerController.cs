@@ -39,6 +39,8 @@ public class TimerController : MonoBehaviour
 
     void Update()
     {
+        if (isMainLevel)
+            SceneLoaderParams.timeSet = _currentTime;
         DisplayTime(ref _currentTime);
         ChangeTextColor(Color.yellow, _time/3);
         ChangeTextColor(Color.red, _time/9);

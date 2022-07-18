@@ -93208,7 +93208,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4164913176101071037, guid: d14d2f4f781471f41ae4d1883dca13b6, type: 3}
       propertyPath: _time
-      value: 30
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4164913176101071037, guid: d14d2f4f781471f41ae4d1883dca13b6, type: 3}
       propertyPath: isMainLevel

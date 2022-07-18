@@ -61579,7 +61579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4164913176101071037, guid: d14d2f4f781471f41ae4d1883dca13b6, type: 3}
       propertyPath: isMainLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4164913177599027108, guid: d14d2f4f781471f41ae4d1883dca13b6, type: 3}
       propertyPath: m_Name

@@ -84839,7 +84839,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1214261972, guid: 655e561fcd8ee9141968b52125bd6db8, type: 3}
       propertyPath: _force
-      value: 3500
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 1868725844, guid: 655e561fcd8ee9141968b52125bd6db8, type: 3}
       propertyPath: m_Size.y
